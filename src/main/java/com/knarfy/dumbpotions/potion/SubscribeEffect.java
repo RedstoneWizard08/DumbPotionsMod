@@ -14,8 +14,9 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import org.jetbrains.annotations.NotNull;
 
-public class SubscribeEffectMobEffect extends MobEffect {
-    public SubscribeEffectMobEffect() {
+public class SubscribeEffect extends MobEffect {
+
+    public SubscribeEffect() {
         super(MobEffectCategory.BENEFICIAL, -3407872);
     }
 
@@ -33,12 +34,15 @@ public class SubscribeEffectMobEffect extends MobEffect {
 
         // TODO: GUI :D
         if (!entity.level().isClientSide() && entity.getServer() != null) {
-            TitleUtil.showTitle((ServerPlayer) entity, Component.literal("Subscribe!").withStyle(ChatFormatting.RED, ChatFormatting.BOLD), ClientboundSetTitleTextPacket::new);
+            TitleUtil.showTitle((ServerPlayer) entity,
+                    Component.literal("Subscribe!").withStyle(ChatFormatting.RED, ChatFormatting.BOLD),
+                    ClientboundSetTitleTextPacket::new);
         }
 
         if (!world.isClientSide()) {
             world.playSound(null, BlockPos.containing(x, y, z), ModSounds.YAY, SoundSource.PLAYERS, 1.0F, 1.0F);
-        } else {
+        }
+        else {
             world.playLocalSound(x, y, z, ModSounds.YAY, SoundSource.PLAYERS, 1.0F, 1.0F, false);
         }
     }
@@ -47,4 +51,5 @@ public class SubscribeEffectMobEffect extends MobEffect {
     public boolean isDurationEffectTick(int duration, int amplifier) {
         return true;
     }
+
 }

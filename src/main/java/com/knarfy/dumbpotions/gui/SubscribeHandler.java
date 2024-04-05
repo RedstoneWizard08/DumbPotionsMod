@@ -1,17 +1,16 @@
 package com.knarfy.dumbpotions.gui;
 
 import com.knarfy.dumbpotions.DumbPotions;
-import io.wispforest.owo.client.screens.ScreenUtils;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.jetbrains.annotations.NotNull;
 
 public class SubscribeHandler extends AbstractContainerMenu {
+
     public SubscribeHandler(int syncId, Inventory inv) {
         this(syncId, inv, ContainerLevelAccess.NULL);
     }
@@ -29,4 +28,5 @@ public class SubscribeHandler extends AbstractContainerMenu {
     public boolean stillValid(Player player) {
         return true;
     }
+
 }

@@ -1,7 +1,7 @@
 package com.knarfy.dumbpotions.client.renderer;
 
 import com.knarfy.dumbpotions.entity.InvisibleEntity;
-import com.knarfy.dumbpotions.potion.RevealingMobEffect;
+import com.knarfy.dumbpotions.potion.RevealingEffect;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
@@ -18,17 +18,13 @@ import org.jetbrains.annotations.NotNull;
 
 @Environment(EnvType.CLIENT)
 public class InvisibleRenderer extends HumanoidMobRenderer<InvisibleEntity, HumanoidModel<InvisibleEntity>> {
+
     public InvisibleRenderer(Context context) {
         super(context, new HumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER)), 0.5F);
 
-        this.addLayer(
-                new HumanoidArmorLayer<>(
-                        this,
-                        new HumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER_INNER_ARMOR)),
-                        new HumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER_OUTER_ARMOR)),
-                        context.getModelManager()
-                )
-        );
+        this.addLayer(new HumanoidArmorLayer<>(this,
+                new HumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER_INNER_ARMOR)),
+                new HumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER_OUTER_ARMOR)), context.getModelManager()));
     }
 
     @Override
@@ -46,11 +42,12 @@ public class InvisibleRenderer extends HumanoidMobRenderer<InvisibleEntity, Huma
         }
 
         for (MobEffectInstance inst : player.getActiveEffects()) {
-            if (inst.getEffect() instanceof RevealingMobEffect) {
+            if (inst.getEffect() instanceof RevealingEffect) {
                 return super.shouldRender(livingEntity, camera, camX, camY, camZ);
             }
         }
 
         return false;
     }
+
 }

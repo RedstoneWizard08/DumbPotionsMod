@@ -9,7 +9,7 @@
   ],
   "contact": {
     "homepage": "https://modrinth.com/mod/knarfys-dumb-potions",
-    "sources": ""
+    "sources": "https://github.com/RedstoneWizard08/DumbPotionsMod"
   },
   "license": "MIT",
   "accessWidener": "dumbpotions.accesswidener",

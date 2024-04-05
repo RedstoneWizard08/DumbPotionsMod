@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "vscjava.vscode-java-pack",
+        "github.copilot",
+        "vscjava.vscode-gradle",
+        "naco-siren.gradle-language",
+        "editorconfig.editorconfig"
+    ]
+}

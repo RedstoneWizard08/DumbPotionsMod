@@ -10,15 +10,16 @@ import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.item.SpawnEggItem;
 
 public class ModItems {
+
     public static Item INVISIBLE_SPAWN_EGG;
 
     public static void load() {
-        INVISIBLE_SPAWN_EGG = Registry.register(
-                BuiltInRegistries.ITEM,
+        INVISIBLE_SPAWN_EGG = Registry.register(BuiltInRegistries.ITEM,
                 new ResourceLocation("dumbpotions", "invisible_spawn_egg"),
-                new SpawnEggItem(ModEntities.INVISIBLE, -1, -6710887, new Properties())
-        );
+                new SpawnEggItem(ModEntities.INVISIBLE, -1, -6710887, new Properties()));
 
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(content -> content.accept(INVISIBLE_SPAWN_EGG));
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS)
+            .register(content -> content.accept(INVISIBLE_SPAWN_EGG));
     }
+
 }

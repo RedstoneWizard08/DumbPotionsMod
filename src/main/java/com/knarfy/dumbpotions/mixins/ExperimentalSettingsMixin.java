@@ -11,10 +11,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ConfirmExperimentalFeaturesScreen.class)
 public class ExperimentalSettingsMixin {
-    @Shadow @Final private BooleanConsumer callback;
+
+    @Shadow
+    @Final
+    private BooleanConsumer callback;
 
     @Inject(method = "init", at = @At("RETURN"))
     protected void init(CallbackInfo ci) {
         this.callback.accept(true);
     }
+
 }

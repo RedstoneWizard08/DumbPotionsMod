@@ -2,15 +2,9 @@ package com.knarfy.dumbpotions.potion;
 
 import com.knarfy.dumbpotions.DumbPotions;
 import com.knarfy.dumbpotions.util.TitleUtil;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.ChatFormatting;
-import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.HoverEvent;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.Style;
-import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket;
 import net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket;
 import net.minecraft.resources.ResourceKey;
@@ -22,10 +16,9 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.function.Function;
+public class DespawnEffect extends MobEffect {
 
-public class DespawnMobEffect extends MobEffect {
-    public DespawnMobEffect() {
+    public DespawnEffect() {
         super(MobEffectCategory.HARMFUL, -39169);
     }
 
@@ -38,24 +31,18 @@ public class DespawnMobEffect extends MobEffect {
     public void addAttributeModifiers(LivingEntity entity, AttributeMap attributeMap, int amplifier) {
         if (!entity.level().isClientSide() && entity.getServer() != null) {
             entity.teleportTo(
-                    entity.getServer().getLevel(
-                            ResourceKey.create(
-                                    Registries.DIMENSION,
-                                    new ResourceLocation(DumbPotions.MOD_ID, "despawn_dimension")
-                            )
-                    ),
-                    0.0,
-                    5.0,
-                    0.0,
-                    null,
-                    0.0f,
-                    0.0f
-            );
+                    entity.getServer()
+                        .getLevel(ResourceKey.create(Registries.DIMENSION,
+                                new ResourceLocation(DumbPotions.MOD_ID, "despawn_dimension"))),
+                    0.0, 5.0, 0.0, null, 0.0f, 0.0f);
         }
 
         if (!entity.level().isClientSide() && entity.getServer() != null && entity instanceof ServerPlayer player) {
-            TitleUtil.showTitle(player, Component.literal("Have Fun :)").withStyle(ChatFormatting.DARK_PURPLE), ClientboundSetSubtitleTextPacket::new);
-            TitleUtil.showTitle(player, Component.literal("Despawned...").withStyle(ChatFormatting.LIGHT_PURPLE, ChatFormatting.BOLD), ClientboundSetTitleTextPacket::new);
+            TitleUtil.showTitle(player, Component.literal("Have Fun :)").withStyle(ChatFormatting.DARK_PURPLE),
+                    ClientboundSetSubtitleTextPacket::new);
+            TitleUtil.showTitle(player,
+                    Component.literal("Despawned...").withStyle(ChatFormatting.LIGHT_PURPLE, ChatFormatting.BOLD),
+                    ClientboundSetTitleTextPacket::new);
         }
     }
 
@@ -79,4 +66,5 @@ public class DespawnMobEffect extends MobEffect {
     public boolean isDurationEffectTick(int duration, int amplifier) {
         return true;
     }
+
 }

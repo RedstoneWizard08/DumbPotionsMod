@@ -15,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public class OpenGuiCommand {
+
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(Commands.literal("subscribe").executes(ctx -> {
             Objects.requireNonNull(ctx.getSource().getPlayer()).openMenu(new MenuProvider() {
@@ -25,11 +26,13 @@ public class OpenGuiCommand {
 
                 @Override
                 public @NotNull AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
-                    return new SubscribeHandler(i, inventory, ContainerLevelAccess.create(player.getCommandSenderWorld(), player.blockPosition()));
+                    return new SubscribeHandler(i, inventory,
+                            ContainerLevelAccess.create(player.getCommandSenderWorld(), player.blockPosition()));
                 }
             });
 
             return 0;
         }));
     }
+
 }

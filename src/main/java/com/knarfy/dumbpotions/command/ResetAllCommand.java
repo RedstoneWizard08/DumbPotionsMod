@@ -13,9 +13,10 @@ import virtuoel.pehkui.api.ScaleTypes;
 
 import java.util.Objects;
 
-import static com.knarfy.dumbpotions.potion.ShapeshiftingEffectMobEffect.unequip;
+import static com.knarfy.dumbpotions.potion.ShapeshiftingEffect.unequip;
 
 public class ResetAllCommand {
+
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(Commands.literal("resetall").executes(arguments -> {
             var player = Objects.requireNonNull(arguments.getSource().getPlayer());
@@ -53,4 +54,5 @@ public class ResetAllCommand {
             return 0;
         }));
     }
+
 }

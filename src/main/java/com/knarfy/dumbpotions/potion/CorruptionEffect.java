@@ -14,8 +14,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-public class CorruptionEffectMobEffect extends MobEffect {
-    public CorruptionEffectMobEffect() {
+public class CorruptionEffect extends MobEffect {
+
+    public CorruptionEffect() {
         super(MobEffectCategory.HARMFUL, -16776961);
     }
 
@@ -30,7 +31,8 @@ public class CorruptionEffectMobEffect extends MobEffect {
     }
 
     @Override
-    public void applyInstantenousEffect(Entity source, Entity indirectSource, LivingEntity entity, int amplifier, double health) {
+    public void applyInstantenousEffect(Entity source, Entity indirectSource, LivingEntity entity, int amplifier,
+            double health) {
         Level world = entity.level();
 
         double x = entity.getX();
@@ -39,28 +41,26 @@ public class CorruptionEffectMobEffect extends MobEffect {
 
         if (entity instanceof Player) {
             if (!world.isClientSide()) {
-                world.playSound(
-                        null,
-                        BlockPos.containing(x, y, z),
+                world.playSound(null, BlockPos.containing(x, y, z),
                         BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("item.shield.break")),
-                        SoundSource.PLAYERS,
-                        1.0F,
-                        1.0F
-                );
-            } else {
-                world.playLocalSound(
-                        x, y, z, BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("item.shield.break")), SoundSource.PLAYERS, 1.0F, 1.0F, false
-                );
+                        SoundSource.PLAYERS, 1.0F, 1.0F);
+            }
+            else {
+                world.playLocalSound(x, y, z,
+                        BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("item.shield.break")),
+                        SoundSource.PLAYERS, 1.0F, 1.0F, false);
             }
 
-            // TODO: Make some blocks not render properly (temporarily) while the effect is active, then, after 10 seconds, kick.
+            // TODO: Make some blocks not render properly (temporarily) while the effect
+            // is active, then, after 10 seconds, kick.
 
             if (!entity.level().isClientSide() && entity.getServer() != null) {
                 if (entity instanceof ServerPlayer player) {
                     player.connection.disconnect(Component.translatable("text.kick.corruption"));
                 }
             }
-        } else if (!entity.level().isClientSide()) {
+        }
+        else if (!entity.level().isClientSide()) {
             entity.discard();
         }
     }
@@ -69,4 +69,5 @@ public class CorruptionEffectMobEffect extends MobEffect {
     public boolean isDurationEffectTick(int duration, int amplifier) {
         return true;
     }
+
 }

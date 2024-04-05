@@ -16,8 +16,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class RevealingMobEffect extends MobEffect {
-    public RevealingMobEffect() {
+public class RevealingEffect extends MobEffect {
+
+    public RevealingEffect() {
         super(MobEffectCategory.HARMFUL, -1);
     }
 
@@ -37,7 +38,8 @@ public class RevealingMobEffect extends MobEffect {
             entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 3200, 1, true, false));
         }
 
-        var positions = List.of(new Vec3(x + 1, y, z), new Vec3(x, y, z + 1), new Vec3(x - 1, y, z), new Vec3(x, y, z - 1));
+        var positions = List.of(new Vec3(x + 1, y, z), new Vec3(x, y, z + 1), new Vec3(x - 1, y, z),
+                new Vec3(x, y, z - 1));
 
         if (world instanceof ServerLevel _level) {
             for (var pos : positions) {
@@ -48,7 +50,8 @@ public class RevealingMobEffect extends MobEffect {
                 invisible.setYHeadRot(0.0F);
                 invisible.setDeltaMovement(0.0, 0.0, 0.0);
                 invisible.lookAt(entity, 100, 100);
-                invisible.finalizeSpawn(_level, _level.getCurrentDifficultyAt(invisible.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
+                invisible.finalizeSpawn(_level, _level.getCurrentDifficultyAt(invisible.blockPosition()),
+                        MobSpawnType.MOB_SUMMONED, null, null);
 
                 _level.addFreshEntity(invisible);
             }
@@ -74,4 +77,5 @@ public class RevealingMobEffect extends MobEffect {
     public boolean isDurationEffectTick(int duration, int amplifier) {
         return true;
     }
+
 }

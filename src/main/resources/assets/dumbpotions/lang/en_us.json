@@ -9,7 +9,7 @@
   "gamerule.shriek_counter.description": "How many potions have been consumed (2+ spawns a warden)_",
 
   "entity.dumbpotions.invisible": "Invisible",
-  "effect.dumbpotions.furious_coctail_effect": "Furious Cocktail",
+  "effect.dumbpotions.furious_cocktail_effect": "Furious Cocktail",
   "effect.dumbpotions.titan_effect": "Titan",
   "effect.dumbpotions.shapeshifting_effect": "Shapeshifting",
   "effect.dumbpotions.shrieking_effect": "Shrieking",

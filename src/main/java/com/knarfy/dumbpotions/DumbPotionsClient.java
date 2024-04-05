@@ -9,10 +9,12 @@ import net.minecraft.client.gui.screens.MenuScreens;
 
 @Environment(EnvType.CLIENT)
 public class DumbPotionsClient implements ClientModInitializer {
+
     @Override
     public void onInitializeClient() {
         ModEntityRenderers.load();
 
         MenuScreens.register(DumbPotions.SUBSCRIBE_HANDLER_MENU_TYPE, SubscribeScreen::new);
     }
+
 }

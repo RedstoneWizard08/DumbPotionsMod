@@ -14,8 +14,9 @@ import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-public class LaunchingEffectMobEffect extends MobEffect {
-    public LaunchingEffectMobEffect() {
+public class LaunchingEffect extends MobEffect {
+
+    public LaunchingEffect() {
         super(MobEffectCategory.HARMFUL, -16759040);
     }
 
@@ -32,25 +33,12 @@ public class LaunchingEffectMobEffect extends MobEffect {
         double z = entity.getZ();
 
         if (!world.isClientSide()) {
-            world.playSound(
-                    null,
-                    BlockPos.containing(x, y, z),
-                    ModSounds.SLIDE_WHISTLE_UP,
-                    SoundSource.PLAYERS,
-                    1.0F,
-                    (float) Mth.nextDouble(RandomSource.create(), 0.7, 1.3)
-            );
-        } else {
-            world.playLocalSound(
-                    x,
-                    y,
-                    z,
-                    ModSounds.SLIDE_WHISTLE_UP,
-                    SoundSource.PLAYERS,
-                    1.0F,
-                    (float) Mth.nextDouble(RandomSource.create(), 0.7, 1.3),
-                    false
-            );
+            world.playSound(null, BlockPos.containing(x, y, z), ModSounds.SLIDE_WHISTLE_UP, SoundSource.PLAYERS, 1.0F,
+                    (float) Mth.nextDouble(RandomSource.create(), 0.7, 1.3));
+        }
+        else {
+            world.playLocalSound(x, y, z, ModSounds.SLIDE_WHISTLE_UP, SoundSource.PLAYERS, 1.0F,
+                    (float) Mth.nextDouble(RandomSource.create(), 0.7, 1.3), false);
         }
 
         if (!entity.level().isClientSide()) {
@@ -62,4 +50,5 @@ public class LaunchingEffectMobEffect extends MobEffect {
     public boolean isDurationEffectTick(int duration, int amplifier) {
         return true;
     }
+
 }

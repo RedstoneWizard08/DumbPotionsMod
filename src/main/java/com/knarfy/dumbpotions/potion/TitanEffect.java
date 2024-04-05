@@ -13,8 +13,9 @@ import org.jetbrains.annotations.NotNull;
 import virtuoel.pehkui.api.ScaleData;
 import virtuoel.pehkui.api.ScaleTypes;
 
-public class TitanEffectMobEffect extends MobEffect {
-    public TitanEffectMobEffect() {
+public class TitanEffect extends MobEffect {
+
+    public TitanEffect() {
         super(MobEffectCategory.NEUTRAL, -10278615);
     }
 
@@ -31,25 +32,14 @@ public class TitanEffectMobEffect extends MobEffect {
         double z = entity.getZ();
 
         if (!world.isClientSide()) {
-            world.playSound(
-                    null,
-                    BlockPos.containing(x, y + 3.0, z),
+            world.playSound(null, BlockPos.containing(x, y + 3.0, z),
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.evoker.prepare_attack")),
-                    SoundSource.PLAYERS,
-                    2.0F,
-                    1.0F
-            );
-        } else {
-            world.playLocalSound(
-                    x,
-                    y + 3.0,
-                    z,
+                    SoundSource.PLAYERS, 2.0F, 1.0F);
+        }
+        else {
+            world.playLocalSound(x, y + 3.0, z,
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.evoker.prepare_attack")),
-                    SoundSource.PLAYERS,
-                    2.0F,
-                    1.0F,
-                    false
-            );
+                    SoundSource.PLAYERS, 2.0F, 1.0F, false);
         }
 
         if (!entity.level().isClientSide() && entity.getServer() != null) {
@@ -93,25 +83,14 @@ public class TitanEffectMobEffect extends MobEffect {
         double z = entity.getZ();
 
         if (!world.isClientSide()) {
-            world.playSound(
-                    null,
-                    BlockPos.containing(x, y, z),
+            world.playSound(null, BlockPos.containing(x, y, z),
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.evoker.prepare_summon")),
-                    SoundSource.PLAYERS,
-                    1.0F,
-                    1.0F
-            );
-        } else {
-            world.playLocalSound(
-                    x,
-                    y,
-                    z,
+                    SoundSource.PLAYERS, 1.0F, 1.0F);
+        }
+        else {
+            world.playLocalSound(x, y, z,
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.evoker.prepare_summon")),
-                    SoundSource.PLAYERS,
-                    1.0F,
-                    1.0F,
-                    false
-            );
+                    SoundSource.PLAYERS, 1.0F, 1.0F, false);
         }
 
         if (!entity.level().isClientSide() && entity.getServer() != null) {
@@ -149,4 +128,5 @@ public class TitanEffectMobEffect extends MobEffect {
     public boolean isDurationEffectTick(int duration, int amplifier) {
         return true;
     }
+
 }

@@ -12,8 +12,9 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import org.jetbrains.annotations.NotNull;
 
-public class ThemeSongEffectMobEffect extends MobEffect {
-    public ThemeSongEffectMobEffect() {
+public class ThemeSongEffect extends MobEffect {
+
+    public ThemeSongEffect() {
         super(MobEffectCategory.BENEFICIAL, -154);
     }
 
@@ -31,7 +32,8 @@ public class ThemeSongEffectMobEffect extends MobEffect {
 
         if (!world.isClientSide()) {
             world.playSound(null, BlockPos.containing(x, y, z), ModSounds.THEME_SONGS, SoundSource.PLAYERS, 0.8F, 1.0F);
-        } else {
+        }
+        else {
             world.playLocalSound(x, y, z, ModSounds.THEME_SONGS, SoundSource.PLAYERS, 0.8F, 1.0F, false);
         }
     }
@@ -52,4 +54,5 @@ public class ThemeSongEffectMobEffect extends MobEffect {
     public boolean isDurationEffectTick(int duration, int amplifier) {
         return true;
     }
+
 }

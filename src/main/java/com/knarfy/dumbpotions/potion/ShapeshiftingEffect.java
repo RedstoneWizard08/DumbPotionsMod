@@ -20,8 +20,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class ShapeshiftingEffectMobEffect extends MobEffect {
-    public ShapeshiftingEffectMobEffect() {
+public class ShapeshiftingEffect extends MobEffect {
+
+    public ShapeshiftingEffect() {
         super(MobEffectCategory.BENEFICIAL, -6750004);
     }
 
@@ -52,25 +53,14 @@ public class ShapeshiftingEffectMobEffect extends MobEffect {
         }
 
         if (!world.isClientSide()) {
-            world.playSound(
-                    null,
-                    BlockPos.containing(x, y, z),
+            world.playSound(null, BlockPos.containing(x, y, z),
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.generic.explode")),
-                    SoundSource.PLAYERS,
-                    0.7F,
-                    2.0F
-            );
-        } else {
-            world.playLocalSound(
-                    x,
-                    y,
-                    z,
+                    SoundSource.PLAYERS, 0.7F, 2.0F);
+        }
+        else {
+            world.playLocalSound(x, y, z,
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.generic.explode")),
-                    SoundSource.PLAYERS,
-                    0.7F,
-                    2.0F,
-                    false
-            );
+                    SoundSource.PLAYERS, 0.7F, 2.0F, false);
         }
 
         List<IdentityType<?>> types = IdentityType.getAllTypes(world);
@@ -95,25 +85,14 @@ public class ShapeshiftingEffectMobEffect extends MobEffect {
         }
 
         if (!world.isClientSide()) {
-            world.playSound(
-                    null,
-                    BlockPos.containing(x, y, z),
+            world.playSound(null, BlockPos.containing(x, y, z),
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.generic.explode")),
-                    SoundSource.PLAYERS,
-                    0.7F,
-                    2.0F
-            );
-        } else {
-            world.playLocalSound(
-                    x,
-                    y,
-                    z,
+                    SoundSource.PLAYERS, 0.7F, 2.0F);
+        }
+        else {
+            world.playLocalSound(x, y, z,
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.generic.explode")),
-                    SoundSource.PLAYERS,
-                    0.7F,
-                    2.0F,
-                    false
-            );
+                    SoundSource.PLAYERS, 0.7F, 2.0F, false);
         }
 
         if (!entity.level().isClientSide() && entity.getServer() != null && entity instanceof ServerPlayer) {
@@ -125,4 +104,5 @@ public class ShapeshiftingEffectMobEffect extends MobEffect {
     public boolean isDurationEffectTick(int duration, int amplifier) {
         return true;
     }
+
 }
