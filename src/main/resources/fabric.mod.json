@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "authors": [
+    "Knarfy",
+    "RedstoneWizard08"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/knarfys-dumb-potions",
+    "sources": ""
+  },
+  "license": "MIT",
+  "accessWidener": "dumbpotions.accesswidener",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.knarfy.dumbpotions.DumbPotions"
+    ],
+    "client": [
+      "com.knarfy.dumbpotions.DumbPotionsClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "fabric": "*",
+    "minecraft": "~1.20",
+    "java": ">=17"
+  }
+}

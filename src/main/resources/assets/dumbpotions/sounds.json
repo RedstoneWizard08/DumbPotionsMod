@@ -1,0 +1,92 @@
+{
+  "themesongs": {
+    "category": "player",
+    "subtitle": "subtitles.themesongs",
+    "sounds": [
+      {
+        "name": "dumbpotions:es_a_train_to_catch_-_john_utah",
+        "stream": false
+      },
+      {
+        "name": "dumbpotions:es_a_true_hero_-_edgar_hopp",
+        "stream": false
+      },
+      {
+        "name": "dumbpotions:es_apollo_-_dream_cave",
+        "stream": false
+      },
+      {
+        "name": "dumbpotions:es_bachelor_on_the_move_-_ritchie_everett",
+        "stream": false
+      },
+      {
+        "name": "dumbpotions:es_dragon_flight_-_johan_johansson",
+        "stream": false
+      },
+      {
+        "name": "dumbpotions:es_dungeon_-_dream_cave",
+        "stream": false
+      },
+      {
+        "name": "dumbpotions:es_fire_and_sword_-_under_earth",
+        "stream": false
+      },
+      {
+        "name": "dumbpotions:es_la_80s_tv_series_1_-_magnus_ringblom",
+        "stream": false
+      },
+      {
+        "name": "dumbpotions:es_private_detective_andres_-_little_island_leap",
+        "stream": false
+      },
+      {
+        "name": "dumbpotions:es_storytime_-_formantx",
+        "stream": false
+      },
+      {
+        "name": "dumbpotions:es_the_cool_fool_5_-_martin_landh",
+        "stream": false
+      },
+      {
+        "name": "dumbpotions:es_the_forest_grand_-_trevor_kowalski",
+        "stream": false
+      },
+      {
+        "name": "dumbpotions:es_the_way_of_the_warrior_-_yi_nantiro",
+        "stream": false
+      },
+      {
+        "name": "dumbpotions:es_upbeat_reggae_trailer_-_johan_hynynen",
+        "stream": false
+      },
+      {
+        "name": "dumbpotions:es_wild_west_entrance_-_radio_night",
+        "stream": false
+      },
+      {
+        "name": "dumbpotions:pmm-strauss-blue-danube-master_v1",
+        "stream": false
+      }
+    ]
+  },
+  "slidewhistleup": {
+    "category": "player",
+    "subtitle": "subtitles.slidewhistleup",
+    "sounds": [
+      {
+        "name": "dumbpotions:slide_whistle_up",
+        "stream": false
+      }
+    ]
+  },
+  "yay": {
+    "category": "player",
+    "subtitle": "subtitles.yay",
+    "sounds": [
+      {
+        "name": "dumbpotions:yay",
+        "stream": false
+      }
+    ]
+  }
+}
