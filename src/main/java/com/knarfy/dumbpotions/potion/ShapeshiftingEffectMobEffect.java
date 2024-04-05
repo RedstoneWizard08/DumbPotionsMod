@@ -25,13 +25,13 @@ public class ShapeshiftingEffectMobEffect extends MobEffect {
         super(MobEffectCategory.BENEFICIAL, -6750004);
     }
 
-    private static void equip(ServerPlayer player, IdentityType<?> entity) {
+    public static void equip(ServerPlayer player, IdentityType<?> entity) {
         Entity created = entity.create(player.level());
 
         assert !(created instanceof LivingEntity living) || PlayerIdentity.updateIdentity(player, entity, living);
     }
 
-    private static void unequip(ServerPlayer player) {
+    public static void unequip(ServerPlayer player) {
         assert PlayerIdentity.updateIdentity(player, null, null);
     }
 

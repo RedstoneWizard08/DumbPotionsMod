@@ -1,6 +1,7 @@
 package com.knarfy.dumbpotions.potion;
 
 import com.knarfy.dumbpotions.DumbPotions;
+import com.knarfy.dumbpotions.util.TitleUtil;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
@@ -28,56 +29,6 @@ public class DespawnMobEffect extends MobEffect {
         super(MobEffectCategory.HARMFUL, -39169);
     }
 
-    @SuppressWarnings("CallToPrintStackTrace")
-    private static void showTitle(ServerPlayer target, Component title, Function<Component, Packet<?>> getter) {
-        try {
-            target.connection.send(getter.apply(updateForEntity(target, title, 0)));
-        } catch (CommandSyntaxException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static MutableComponent updateForEntity(ServerPlayer player, Component component, int recursionDepth) throws CommandSyntaxException {
-        CommandSourceStack stack = new CommandSourceStack(
-                player,
-                player.position(),
-                player.getRotationVector(),
-                player.serverLevel(),
-                4,
-                player.getName().getString(),
-                player.getDisplayName(),
-                player.server,
-                player
-        );
-
-        if (recursionDepth > 100) {
-            return component.copy();
-        } else {
-            MutableComponent mutableComponent = component.getContents().resolve(stack, player, recursionDepth + 1);
-
-            for (Component component2 : component.getSiblings()) {
-                mutableComponent.append(updateForEntity(player, component2, recursionDepth + 1));
-            }
-
-            return mutableComponent.withStyle(resolveStyle(player, component.getStyle(), recursionDepth));
-        }
-    }
-
-    private static Style resolveStyle(ServerPlayer player, Style style, int recursionDepth) throws CommandSyntaxException {
-        HoverEvent hoverEvent = style.getHoverEvent();
-
-        if (hoverEvent != null) {
-            Component component = hoverEvent.getValue(HoverEvent.Action.SHOW_TEXT);
-
-            if (component != null) {
-                HoverEvent hoverEvent2 = new HoverEvent(HoverEvent.Action.SHOW_TEXT, updateForEntity(player, component, recursionDepth + 1));
-                return style.withHoverEvent(hoverEvent2);
-            }
-        }
-
-        return style;
-    }
-
     @Override
     public @NotNull String getDescriptionId() {
         return "effect.dumbpotions.despawn";
@@ -103,8 +54,8 @@ public class DespawnMobEffect extends MobEffect {
         }
 
         if (!entity.level().isClientSide() && entity.getServer() != null && entity instanceof ServerPlayer player) {
-            showTitle(player, Component.literal("Have Fun :)").withStyle(ChatFormatting.DARK_PURPLE), ClientboundSetSubtitleTextPacket::new);
-            showTitle(player, Component.literal("Despawned...").withStyle(ChatFormatting.LIGHT_PURPLE, ChatFormatting.BOLD), ClientboundSetTitleTextPacket::new);
+            TitleUtil.showTitle(player, Component.literal("Have Fun :)").withStyle(ChatFormatting.DARK_PURPLE), ClientboundSetSubtitleTextPacket::new);
+            TitleUtil.showTitle(player, Component.literal("Despawned...").withStyle(ChatFormatting.LIGHT_PURPLE, ChatFormatting.BOLD), ClientboundSetTitleTextPacket::new);
         }
     }
 

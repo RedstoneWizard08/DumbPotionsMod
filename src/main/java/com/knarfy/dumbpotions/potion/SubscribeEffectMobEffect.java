@@ -1,11 +1,17 @@
 package com.knarfy.dumbpotions.potion;
 
-import com.knarfy.dumbpotions.procedures.SubscribeEffectEffectStartedAppliedProcedure;
+import com.knarfy.dumbpotions.init.ModSounds;
+import com.knarfy.dumbpotions.util.TitleUtil;
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
-import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 public class SubscribeEffectMobEffect extends MobEffect {
@@ -20,12 +26,21 @@ public class SubscribeEffectMobEffect extends MobEffect {
 
     @Override
     public void addAttributeModifiers(LivingEntity entity, AttributeMap attributeMap, int amplifier) {
-        Level world = entity.level();
-        double x = entity.getX();
-        double y = entity.getY();
-        double z = entity.getZ();
+        var world = entity.level();
+        var x = entity.getX();
+        var y = entity.getY();
+        var z = entity.getZ();
 
-        SubscribeEffectEffectStartedAppliedProcedure.execute(world, x, y, z, entity);
+        // TODO: GUI :D
+        if (!entity.level().isClientSide() && entity.getServer() != null) {
+            TitleUtil.showTitle((ServerPlayer) entity, Component.literal("Subscribe!").withStyle(ChatFormatting.RED, ChatFormatting.BOLD), ClientboundSetTitleTextPacket::new);
+        }
+
+        if (!world.isClientSide()) {
+            world.playSound(null, BlockPos.containing(x, y, z), ModSounds.YAY, SoundSource.PLAYERS, 1.0F, 1.0F);
+        } else {
+            world.playLocalSound(x, y, z, ModSounds.YAY, SoundSource.PLAYERS, 1.0F, 1.0F, false);
+        }
     }
 
     @Override

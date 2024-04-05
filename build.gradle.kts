@@ -58,6 +58,10 @@ repositories {
     maven {
         url = uri("https://server.bbkr.space/artifactory/libs-release")
     }
+
+    maven {
+        url = uri("https://maven.wispforest.io")
+    }
 }
 
 dependencies {
@@ -70,13 +74,12 @@ dependencies {
 
     modImplementation("net.fabricmc:fabric-loader:${project.property("loader_version")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_api_version")}")
-    modImplementation("io.github.cottonmc:LibGui:8.1.1+1.20.1")
+    modImplementation("io.wispforest:owo-lib:0.11.2+1.20")
 
     modApi("curse.maven:identity-391390:4687497")
     modApi("carpet:fabric-carpet:1.20-1.4.112+v230608")
 
     modCompileOnly("com.github.Virtuoel:Pehkui:3.8.0")
-
     modRuntimeOnly("com.github.Virtuoel:KanosConfig:0.4.1")
     modRuntimeOnly("curse.maven:pehkui-319596:5208259")
     modRuntimeOnly("dev.draylar.omega-config:omega-config-base:1.4.0+1.20.1")
