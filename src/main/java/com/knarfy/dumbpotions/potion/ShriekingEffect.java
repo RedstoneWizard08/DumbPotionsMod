@@ -43,8 +43,7 @@ public class ShriekingEffect extends MobEffect {
             world.playSound(null, BlockPos.containing(x, y, z),
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("block.sculk_shrieker.shriek")),
                     SoundSource.PLAYERS, 1.0F, 1.0F);
-        }
-        else {
+        } else {
             world.playLocalSound(x, y, z,
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("block.sculk_shrieker.shriek")),
                     SoundSource.PLAYERS, 1.0F, 1.0F, false);
@@ -56,11 +55,9 @@ public class ShriekingEffect extends MobEffect {
 
         if (world.getLevelData().getGameRules().getInt(ModGameRules.SHRIEK_COUNTER) == 0) {
             world.getLevelData().getGameRules().getRule(ModGameRules.SHRIEK_COUNTER).set(1, world.getServer());
-        }
-        else if (world.getLevelData().getGameRules().getInt(ModGameRules.SHRIEK_COUNTER) == 1) {
+        } else if (world.getLevelData().getGameRules().getInt(ModGameRules.SHRIEK_COUNTER) == 1) {
             world.getLevelData().getGameRules().getRule(ModGameRules.SHRIEK_COUNTER).set(2, world.getServer());
-        }
-        else if (world.getLevelData().getGameRules().getInt(ModGameRules.SHRIEK_COUNTER) >= 2) {
+        } else if (world.getLevelData().getGameRules().getInt(ModGameRules.SHRIEK_COUNTER) >= 2) {
             world.getLevelData().getGameRules().getRule(ModGameRules.SHRIEK_COUNTER).set(0, world.getServer());
 
             (new Object() {
@@ -76,7 +73,7 @@ public class ShriekingEffect extends MobEffect {
 
                                 warden.getBrain().clearMemories();
                                 warden.getBrain()
-                                    .setMemoryWithExpiry(MemoryModuleType.DIG_COOLDOWN, Unit.INSTANCE, 1200L);
+                                        .setMemoryWithExpiry(MemoryModuleType.DIG_COOLDOWN, Unit.INSTANCE, 1200L);
                                 warden.getBrain().setMemoryWithExpiry(MemoryModuleType.IS_EMERGING, Unit.INSTANCE, 64L);
 
                                 warden.moveTo(pos.x, pos.y, pos.z, 0.0F, 0.0F);

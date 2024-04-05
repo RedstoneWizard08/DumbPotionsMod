@@ -56,8 +56,7 @@ public class ShapeshiftingEffect extends MobEffect {
             world.playSound(null, BlockPos.containing(x, y, z),
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.generic.explode")),
                     SoundSource.PLAYERS, 0.7F, 2.0F);
-        }
-        else {
+        } else {
             world.playLocalSound(x, y, z,
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.generic.explode")),
                     SoundSource.PLAYERS, 0.7F, 2.0F, false);
@@ -88,8 +87,7 @@ public class ShapeshiftingEffect extends MobEffect {
             world.playSound(null, BlockPos.containing(x, y, z),
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.generic.explode")),
                     SoundSource.PLAYERS, 0.7F, 2.0F);
-        }
-        else {
+        } else {
             world.playLocalSound(x, y, z,
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.generic.explode")),
                     SoundSource.PLAYERS, 0.7F, 2.0F, false);

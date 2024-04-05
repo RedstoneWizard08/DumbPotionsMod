@@ -35,8 +35,7 @@ public class LaunchingEffect extends MobEffect {
         if (!world.isClientSide()) {
             world.playSound(null, BlockPos.containing(x, y, z), ModSounds.SLIDE_WHISTLE_UP, SoundSource.PLAYERS, 1.0F,
                     (float) Mth.nextDouble(RandomSource.create(), 0.7, 1.3));
-        }
-        else {
+        } else {
             world.playLocalSound(x, y, z, ModSounds.SLIDE_WHISTLE_UP, SoundSource.PLAYERS, 1.0F,
                     (float) Mth.nextDouble(RandomSource.create(), 0.7, 1.3), false);
         }

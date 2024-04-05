@@ -35,8 +35,7 @@ public class TitanEffect extends MobEffect {
             world.playSound(null, BlockPos.containing(x, y + 3.0, z),
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.evoker.prepare_attack")),
                     SoundSource.PLAYERS, 2.0F, 1.0F);
-        }
-        else {
+        } else {
             world.playLocalSound(x, y + 3.0, z,
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.evoker.prepare_attack")),
                     SoundSource.PLAYERS, 2.0F, 1.0F, false);
@@ -86,8 +85,7 @@ public class TitanEffect extends MobEffect {
             world.playSound(null, BlockPos.containing(x, y, z),
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.evoker.prepare_summon")),
                     SoundSource.PLAYERS, 1.0F, 1.0F);
-        }
-        else {
+        } else {
             world.playLocalSound(x, y, z,
                     BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.evoker.prepare_summon")),
                     SoundSource.PLAYERS, 1.0F, 1.0F, false);

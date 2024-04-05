@@ -26,8 +26,8 @@ public class FuriousCocktailEffect extends MobEffect {
 
     @Override
     public void applyInstantenousEffect(Entity source, Entity indirectSource, LivingEntity entity, int amplifier,
-            double health) {
-        MobEffect[] effects = new MobEffect[] { MobEffects.ABSORPTION, MobEffects.BAD_OMEN, MobEffects.BLINDNESS,
+                                        double health) {
+        MobEffect[] effects = new MobEffect[]{MobEffects.ABSORPTION, MobEffects.BAD_OMEN, MobEffects.BLINDNESS,
                 MobEffects.CONDUIT_POWER, MobEffects.DARKNESS, MobEffects.DOLPHINS_GRACE, MobEffects.FIRE_RESISTANCE,
                 MobEffects.GLOWING, MobEffects.DIG_SPEED, MobEffects.HEALTH_BOOST, MobEffects.HERO_OF_THE_VILLAGE,
                 MobEffects.HUNGER, MobEffects.HARM, MobEffects.HEAL, MobEffects.INVISIBILITY, MobEffects.JUMP,
@@ -35,7 +35,7 @@ public class FuriousCocktailEffect extends MobEffect {
                 MobEffects.NIGHT_VISION, MobEffects.POISON, MobEffects.REGENERATION, MobEffects.DAMAGE_RESISTANCE,
                 MobEffects.SATURATION, MobEffects.SLOW_FALLING, MobEffects.MOVEMENT_SLOWDOWN, MobEffects.MOVEMENT_SPEED,
                 MobEffects.DAMAGE_BOOST, MobEffects.UNLUCK, MobEffects.WATER_BREATHING, MobEffects.WEAKNESS,
-                MobEffects.WITHER, };
+                MobEffects.WITHER,};
 
         if (!entity.level().isClientSide()) {
             for (MobEffect effect : effects) {

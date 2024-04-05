@@ -41,8 +41,7 @@ public class SubscribeEffect extends MobEffect {
 
         if (!world.isClientSide()) {
             world.playSound(null, BlockPos.containing(x, y, z), ModSounds.YAY, SoundSource.PLAYERS, 1.0F, 1.0F);
-        }
-        else {
+        } else {
             world.playLocalSound(x, y, z, ModSounds.YAY, SoundSource.PLAYERS, 1.0F, 1.0F, false);
         }
     }

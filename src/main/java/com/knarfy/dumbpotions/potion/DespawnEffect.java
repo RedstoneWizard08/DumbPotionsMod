@@ -32,8 +32,8 @@ public class DespawnEffect extends MobEffect {
         if (!entity.level().isClientSide() && entity.getServer() != null) {
             entity.teleportTo(
                     entity.getServer()
-                        .getLevel(ResourceKey.create(Registries.DIMENSION,
-                                new ResourceLocation(DumbPotions.MOD_ID, "despawn_dimension"))),
+                            .getLevel(ResourceKey.create(Registries.DIMENSION,
+                                    new ResourceLocation(DumbPotions.MOD_ID, "despawn_dimension"))),
                     0.0, 5.0, 0.0, null, 0.0f, 0.0f);
         }
 

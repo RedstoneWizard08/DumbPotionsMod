@@ -8,10 +8,10 @@ import net.minecraft.sounds.SoundEvent;
 public class ModSounds {
 
     public static SoundEvent THEME_SONGS = SoundEvent
-        .createVariableRangeEvent(new ResourceLocation("dumbpotions", "themesongs"));
+            .createVariableRangeEvent(new ResourceLocation("dumbpotions", "themesongs"));
 
     public static SoundEvent SLIDE_WHISTLE_UP = SoundEvent
-        .createVariableRangeEvent(new ResourceLocation("dumbpotions", "slidewhistleup"));
+            .createVariableRangeEvent(new ResourceLocation("dumbpotions", "slidewhistleup"));
 
     public static SoundEvent YAY = SoundEvent.createVariableRangeEvent(new ResourceLocation("dumbpotions", "yay"));
 

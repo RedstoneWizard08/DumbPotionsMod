@@ -17,8 +17,7 @@ public class TitleUtil {
     public static void showTitle(ServerPlayer target, Component title, Function<Component, Packet<?>> getter) {
         try {
             target.connection.send(getter.apply(updateForEntity(target, title, 0)));
-        }
-        catch (CommandSyntaxException e) {
+        } catch (CommandSyntaxException e) {
             e.printStackTrace();
         }
     }
@@ -30,8 +29,7 @@ public class TitleUtil {
 
         if (recursionDepth > 100) {
             return component.copy();
-        }
-        else {
+        } else {
             MutableComponent mutableComponent = component.getContents().resolve(stack, player, recursionDepth + 1);
 
             for (Component component2 : component.getSiblings()) {

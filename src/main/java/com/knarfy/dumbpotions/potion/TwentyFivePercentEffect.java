@@ -36,21 +36,21 @@ public class TwentyFivePercentEffect extends MobEffect {
 
     @Override
     public void applyInstantenousEffect(Entity source, Entity indirectSource, LivingEntity entity, int amplifier,
-            double health) {
+                                        double health) {
         var world = entity.level();
         var x = entity.getX();
         var y = entity.getY();
         var z = entity.getZ();
 
-        var goodEffects = new MobEffect[] { MobEffects.ABSORPTION, MobEffects.CONDUIT_POWER, MobEffects.DOLPHINS_GRACE,
+        var goodEffects = new MobEffect[]{MobEffects.ABSORPTION, MobEffects.CONDUIT_POWER, MobEffects.DOLPHINS_GRACE,
                 MobEffects.FIRE_RESISTANCE, MobEffects.GLOWING, MobEffects.DIG_SPEED, MobEffects.HEALTH_BOOST,
                 MobEffects.HERO_OF_THE_VILLAGE, MobEffects.HEAL, MobEffects.JUMP, MobEffects.LUCK,
                 MobEffects.NIGHT_VISION, MobEffects.REGENERATION, MobEffects.DAMAGE_RESISTANCE, MobEffects.SATURATION,
-                MobEffects.MOVEMENT_SPEED, MobEffects.DAMAGE_BOOST, MobEffects.WATER_BREATHING, };
+                MobEffects.MOVEMENT_SPEED, MobEffects.DAMAGE_BOOST, MobEffects.WATER_BREATHING,};
 
-        var badEffects = new MobEffect[] { MobEffects.BAD_OMEN, MobEffects.BLINDNESS, MobEffects.DARKNESS,
+        var badEffects = new MobEffect[]{MobEffects.BAD_OMEN, MobEffects.BLINDNESS, MobEffects.DARKNESS,
                 MobEffects.HUNGER, MobEffects.CONFUSION, MobEffects.DIG_SLOWDOWN, MobEffects.MOVEMENT_SLOWDOWN,
-                MobEffects.WEAKNESS, MobEffects.UNLUCK, };
+                MobEffects.WEAKNESS, MobEffects.UNLUCK,};
 
         var percent = Mth.nextInt(RandomSource.create(), 1, 4);
 
@@ -64,26 +64,23 @@ public class TwentyFivePercentEffect extends MobEffect {
                     world.explode(null, pos.x, pos.y, pos.z, 4.0F, Level.ExplosionInteraction.TNT);
                 }
             }
-        }
-        else if (percent == 2) {
+        } else if (percent == 2) {
             if (!entity.level().isClientSide()) {
                 for (MobEffect effect : goodEffects) {
                     entity.addEffect(new MobEffectInstance(effect, 600, 10, false, false));
                 }
             }
-        }
-        else if (percent == 3) {
+        } else if (percent == 3) {
             if (!entity.level().isClientSide()) {
                 for (MobEffect effect : badEffects) {
                     entity.addEffect(new MobEffectInstance(effect, 600, 10, false, false));
                 }
             }
-        }
-        else if (percent == 4) {
+        } else if (percent == 4) {
             entity.hurt(new DamageSource(entity.level()
-                .registryAccess()
-                .registryOrThrow(Registries.DAMAGE_TYPE)
-                .getHolderOrThrow(DamageTypes.GENERIC)) {
+                    .registryAccess()
+                    .registryOrThrow(Registries.DAMAGE_TYPE)
+                    .getHolderOrThrow(DamageTypes.GENERIC)) {
                 public @NotNull Component getLocalizedDeathMessage(LivingEntity _msgEntity) {
                     return Component.translatable("death.attack.25%");
                 }

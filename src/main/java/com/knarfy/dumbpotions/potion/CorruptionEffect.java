@@ -32,7 +32,7 @@ public class CorruptionEffect extends MobEffect {
 
     @Override
     public void applyInstantenousEffect(Entity source, Entity indirectSource, LivingEntity entity, int amplifier,
-            double health) {
+                                        double health) {
         Level world = entity.level();
 
         double x = entity.getX();
@@ -44,8 +44,7 @@ public class CorruptionEffect extends MobEffect {
                 world.playSound(null, BlockPos.containing(x, y, z),
                         BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("item.shield.break")),
                         SoundSource.PLAYERS, 1.0F, 1.0F);
-            }
-            else {
+            } else {
                 world.playLocalSound(x, y, z,
                         BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("item.shield.break")),
                         SoundSource.PLAYERS, 1.0F, 1.0F, false);
@@ -59,8 +58,7 @@ public class CorruptionEffect extends MobEffect {
                     player.connection.disconnect(Component.translatable("text.kick.corruption"));
                 }
             }
-        }
-        else if (!entity.level().isClientSide()) {
+        } else if (!entity.level().isClientSide()) {
             entity.discard();
         }
     }

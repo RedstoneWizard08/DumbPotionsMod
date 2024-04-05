@@ -19,7 +19,7 @@ public class ModItems {
                 new SpawnEggItem(ModEntities.INVISIBLE, -1, -6710887, new Properties()));
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS)
-            .register(content -> content.accept(INVISIBLE_SPAWN_EGG));
+                .register(content -> content.accept(INVISIBLE_SPAWN_EGG));
     }
 
 }

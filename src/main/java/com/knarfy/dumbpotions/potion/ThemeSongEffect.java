@@ -32,8 +32,7 @@ public class ThemeSongEffect extends MobEffect {
 
         if (!world.isClientSide()) {
             world.playSound(null, BlockPos.containing(x, y, z), ModSounds.THEME_SONGS, SoundSource.PLAYERS, 0.8F, 1.0F);
-        }
-        else {
+        } else {
             world.playLocalSound(x, y, z, ModSounds.THEME_SONGS, SoundSource.PLAYERS, 0.8F, 1.0F, false);
         }
     }

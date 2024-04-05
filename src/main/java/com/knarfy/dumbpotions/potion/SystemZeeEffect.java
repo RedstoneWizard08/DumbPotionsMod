@@ -40,15 +40,14 @@ public class SystemZeeEffect extends MobEffect {
         if (world.getLevelData().getGameRules().getBoolean(ModGameRules.SYSTEM_ZEE_TP)) {
             if (!entity.level().isClientSide() && entity.getServer() != null) {
                 if (Arrays.stream(entity.getServer().getPlayerNames())
-                    .map(String::toLowerCase)
-                    .toList()
-                    .contains("syszee")) {
+                        .map(String::toLowerCase)
+                        .toList()
+                        .contains("syszee")) {
                     var pos = entity.position();
 
                     Objects.requireNonNull(entity.getServer().getPlayerList().getPlayerByName("syszee"))
-                        .teleportTo(pos.x, pos.y, pos.z);
-                }
-                else {
+                            .teleportTo(pos.x, pos.y, pos.z);
+                } else {
                     EntityPlayerMPFake.createFake("syszee", entity.getServer(), entity.position(), 0, 0,
                             entity.level().dimension(), GameType.SURVIVAL, false);
                 }
@@ -58,8 +57,7 @@ public class SystemZeeEffect extends MobEffect {
                 world.playSound(null, BlockPos.containing(x, y, z),
                         BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.enderman.teleport")),
                         SoundSource.PLAYERS, 1.0F, 1.0F);
-            }
-            else {
+            } else {
                 world.playLocalSound(x, y, z,
                         BuiltInRegistries.SOUND_EVENT.get(new ResourceLocation("entity.enderman.teleport")),
                         SoundSource.PLAYERS, 1.0F, 1.0F, false);

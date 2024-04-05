@@ -97,17 +97,13 @@ public class InvisibleEntity extends Monster {
     public boolean hurt(DamageSource source, float amount) {
         if (source.getDirectEntity() instanceof ThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud) {
             return false;
-        }
-        else if (source.is(DamageTypes.FALL)) {
+        } else if (source.is(DamageTypes.FALL)) {
             return false;
-        }
-        else if (source.is(DamageTypes.CACTUS)) {
+        } else if (source.is(DamageTypes.CACTUS)) {
             return false;
-        }
-        else if (source.is(DamageTypes.DROWN)) {
+        } else if (source.is(DamageTypes.DROWN)) {
             return false;
-        }
-        else {
+        } else {
             return !source.is(DamageTypes.LIGHTNING_BOLT) && super.hurt(source, amount);
         }
     }
@@ -138,13 +134,13 @@ public class InvisibleEntity extends Monster {
         Level world = this.level();
 
         Entity var10 = world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 3.0, 3.0, 3.0), e -> true)
-            .stream()
-            .min((new Object() {
-                Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
-                    return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
-                }
-            }).compareDistOf(x, y, z))
-            .orElse(null);
+                .stream()
+                .min((new Object() {
+                    Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+                        return Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_x, _y, _z));
+                    }
+                }).compareDistOf(x, y, z))
+                .orElse(null);
         if (var10 instanceof LivingEntity _ent) {
             setTarget(_ent);
         }

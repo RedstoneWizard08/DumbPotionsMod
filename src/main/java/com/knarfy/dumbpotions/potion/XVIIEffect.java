@@ -21,7 +21,7 @@ public class XVIIEffect extends MobEffect {
 
     @Override
     public void addAttributeModifiers(LivingEntity entity, AttributeMap attributeMap, int amplifier) {
-        var effects = new MobEffect[] { MobEffects.ABSORPTION, MobEffects.BAD_OMEN, MobEffects.BLINDNESS,
+        var effects = new MobEffect[]{MobEffects.ABSORPTION, MobEffects.BAD_OMEN, MobEffects.BLINDNESS,
                 MobEffects.CONDUIT_POWER, MobEffects.DARKNESS, MobEffects.DOLPHINS_GRACE, MobEffects.FIRE_RESISTANCE,
                 MobEffects.GLOWING, MobEffects.DIG_SPEED, MobEffects.HEALTH_BOOST, MobEffects.HERO_OF_THE_VILLAGE,
                 MobEffects.HUNGER, MobEffects.HARM, MobEffects.HEAL, MobEffects.INVISIBILITY, MobEffects.JUMP,
@@ -29,7 +29,7 @@ public class XVIIEffect extends MobEffect {
                 MobEffects.NIGHT_VISION, MobEffects.POISON, MobEffects.REGENERATION, MobEffects.DAMAGE_RESISTANCE,
                 MobEffects.SATURATION, MobEffects.SLOW_FALLING, MobEffects.MOVEMENT_SLOWDOWN, MobEffects.MOVEMENT_SPEED,
                 MobEffects.DAMAGE_BOOST, MobEffects.UNLUCK, MobEffects.WATER_BREATHING, MobEffects.WEAKNESS,
-                MobEffects.WITHER, };
+                MobEffects.WITHER,};
 
         if (!entity.level().isClientSide()) {
             for (MobEffect effect : effects) {
