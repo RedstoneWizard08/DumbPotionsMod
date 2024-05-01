@@ -3,7 +3,6 @@
 plugins {
     id("java")
     id("fabric-loom") version "1.5-SNAPSHOT"
-    id("io.spring.javaformat") version "0.0.41"
 }
 
 version = project.property("mod_version")!!
