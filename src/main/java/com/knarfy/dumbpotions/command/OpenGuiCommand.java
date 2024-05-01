@@ -1,6 +1,6 @@
 package com.knarfy.dumbpotions.command;
 
-import com.knarfy.dumbpotions.gui.SubscribeHandler;
+import com.knarfy.dumbpotions.screen.SubscribeHandler;
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;

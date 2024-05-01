@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dumbpotions.iml" filepath="$PROJECT_DIR$/.idea/modules/dumbpotions.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dumbpotions.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dumbpotions.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dumbpotions.test.iml" filepath="$PROJECT_DIR$/.idea/modules/dumbpotions.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DumbPotionsMod.main.iml" filepath="$PROJECT_DIR$/.idea/modules/DumbPotionsMod.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DumbPotionsMod.test.iml" filepath="$PROJECT_DIR$/.idea/modules/DumbPotionsMod.test.iml" />
     </modules>
   </component>
 </project>

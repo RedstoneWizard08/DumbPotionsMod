@@ -1,5 +1,7 @@
 package com.knarfy.dumbpotions.potion;
 
+import com.knarfy.dumbpotions.DumbPotions;
+import com.knarfy.dumbpotions.util.EntityUtil;
 import draylar.identity.api.PlayerIdentity;
 import draylar.identity.api.variant.IdentityType;
 import net.minecraft.core.BlockPos;
@@ -14,6 +16,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import org.jetbrains.annotations.NotNull;
@@ -26,14 +29,21 @@ public class ShapeshiftingEffect extends MobEffect {
         super(MobEffectCategory.BENEFICIAL, -6750004);
     }
 
-    public static void equip(ServerPlayer player, IdentityType<?> entity) {
+    public static void equip(ServerPlayer player, EntityType<?> entity) {
+        DumbPotions.LOGGER.debug("Trying to set player {}'s identity to {}", player.getName(), BuiltInRegistries.ENTITY_TYPE.getKey(entity));
+
         Entity created = entity.create(player.level());
 
-        assert !(created instanceof LivingEntity living) || PlayerIdentity.updateIdentity(player, entity, living);
+        if (created instanceof LivingEntity living) {
+            var defaultType = IdentityType.from(living);
+
+            if (defaultType != null) PlayerIdentity.updateIdentity(player, defaultType, living);
+        }
     }
 
     public static void unequip(ServerPlayer player) {
-        assert PlayerIdentity.updateIdentity(player, null, null);
+        DumbPotions.LOGGER.debug("Removing {}'s identity", player.getName());
+        PlayerIdentity.updateIdentity(player, null, null);
     }
 
     @Override
@@ -62,8 +72,8 @@ public class ShapeshiftingEffect extends MobEffect {
                     SoundSource.PLAYERS, 0.7F, 2.0F, false);
         }
 
-        List<IdentityType<?>> types = IdentityType.getAllTypes(world);
-        IdentityType<?> value = types.get(Mth.nextInt(RandomSource.create(), 1, types.size()));
+        List<EntityType<?>> types = EntityUtil.getEntityTypes(world);
+        EntityType<?> value = types.get(Mth.nextInt(RandomSource.create(), 1, types.size()));
 
         if (!world.isClientSide() && value != null && entity instanceof ServerPlayer) {
             equip((ServerPlayer) entity, value);

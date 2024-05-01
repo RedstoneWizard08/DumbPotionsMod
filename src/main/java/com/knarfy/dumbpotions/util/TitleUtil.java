@@ -22,8 +22,7 @@ public class TitleUtil {
         }
     }
 
-    public static MutableComponent updateForEntity(ServerPlayer player, Component component, int recursionDepth)
-            throws CommandSyntaxException {
+    public static MutableComponent updateForEntity(ServerPlayer player, Component component, int recursionDepth) throws CommandSyntaxException {
         CommandSourceStack stack = new CommandSourceStack(player, player.position(), player.getRotationVector(),
                 player.serverLevel(), 4, player.getName().getString(), player.getDisplayName(), player.server, player);
 
@@ -40,8 +39,7 @@ public class TitleUtil {
         }
     }
 
-    public static Style resolveStyle(ServerPlayer player, Style style, int recursionDepth)
-            throws CommandSyntaxException {
+    public static Style resolveStyle(ServerPlayer player, Style style, int recursionDepth) throws CommandSyntaxException {
         HoverEvent hoverEvent = style.getHoverEvent();
 
         if (hoverEvent != null) {
@@ -50,6 +48,7 @@ public class TitleUtil {
             if (component != null) {
                 HoverEvent hoverEvent2 = new HoverEvent(HoverEvent.Action.SHOW_TEXT,
                         updateForEntity(player, component, recursionDepth + 1));
+
                 return style.withHoverEvent(hoverEvent2);
             }
         }

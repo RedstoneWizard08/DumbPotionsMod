@@ -24,8 +24,6 @@ public class ModEntities {
                         .trackedUpdateRate(3)
                         .build());
 
-        InvisibleEntity.init();
         FabricDefaultAttributeRegistry.register(INVISIBLE, InvisibleEntity.createAttributes());
     }
-
 }

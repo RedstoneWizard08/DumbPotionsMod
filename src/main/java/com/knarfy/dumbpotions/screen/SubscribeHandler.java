@@ -1,4 +1,4 @@
-package com.knarfy.dumbpotions.gui;
+package com.knarfy.dumbpotions.screen;
 
 import com.knarfy.dumbpotions.DumbPotions;
 import net.minecraft.world.entity.player.Inventory;

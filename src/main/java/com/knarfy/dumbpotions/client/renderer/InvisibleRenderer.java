@@ -1,6 +1,7 @@
 package com.knarfy.dumbpotions.client.renderer;
 
 import com.knarfy.dumbpotions.entity.InvisibleEntity;
+import com.knarfy.dumbpotions.init.ModEffects;
 import com.knarfy.dumbpotions.potion.RevealingEffect;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -34,20 +35,16 @@ public class InvisibleRenderer extends HumanoidMobRenderer<InvisibleEntity, Huma
 
     @Override
     public boolean shouldRender(InvisibleEntity livingEntity, Frustum camera, double camX, double camY, double camZ) {
-        Minecraft client = Minecraft.getInstance();
-        Player player = client.player;
+        Player player = Minecraft.getInstance().player;
 
         if (player == null) {
-            return false;
+            return super.shouldRender(livingEntity, camera, camX, camY, camZ);
         }
 
-        for (MobEffectInstance inst : player.getActiveEffects()) {
-            if (inst.getEffect() instanceof RevealingEffect) {
-                return super.shouldRender(livingEntity, camera, camX, camY, camZ);
-            }
+        if (player.getEffect(ModEffects.REVEALING) != null) {
+            return super.shouldRender(livingEntity, camera, camX, camY, camZ);
         }
 
         return false;
     }
-
 }

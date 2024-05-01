@@ -1,6 +1,6 @@
 package com.knarfy.dumbpotions;
 
-import com.knarfy.dumbpotions.gui.SubscribeHandler;
+import com.knarfy.dumbpotions.screen.SubscribeHandler;
 import com.knarfy.dumbpotions.init.*;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.world.flag.FeatureFlags;
@@ -29,5 +29,4 @@ public class DumbPotions implements ModInitializer {
 
     public static final MenuType<SubscribeHandler> SUBSCRIBE_HANDLER_MENU_TYPE = new MenuType<>(SubscribeHandler::new,
             FeatureFlags.VANILLA_SET);
-
 }

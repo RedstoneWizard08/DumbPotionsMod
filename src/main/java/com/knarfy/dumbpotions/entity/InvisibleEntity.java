@@ -35,9 +35,6 @@ public class InvisibleEntity extends Monster {
         this.setNoAi(false);
     }
 
-    public static void init() {
-    }
-
     public static Builder createAttributes() {
         Builder builder = Mob.createMobAttributes();
 
