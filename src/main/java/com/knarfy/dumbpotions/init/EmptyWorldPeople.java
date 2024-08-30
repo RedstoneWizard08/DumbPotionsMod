@@ -7,6 +7,7 @@ public enum EmptyWorldPeople {
     GARRETTTHECARROT("GarrettTheCarrot", "GTCarrot", 0xFF9D48),
     FERITWOLF95("FeritWolf95", "FeritWolf95", 0xCA00F4),
     KNARFY("Knarfy", "Knarfy", 0x7523A9),
+    CAMMAGANZA("Cammaganza", "Cammaganza", 0x874B3A),
     CAPTONIUM("Captonium", "Captonium", 0x6AECC2),
     CLOUSER("Clouser", "C1OUS3R", 0xFB6D49),
     MONOCLEMC("MonocleMC", "MonocleMC", 0x132553),
@@ -19,6 +20,7 @@ public enum EmptyWorldPeople {
     AJIANAJA("AjianAja", "AjianAja", 0xFF4260),
     THEVISIONARYONE("TheVisionaryOne", "TheVisionaryOne", 0x4EBBFE),
     COOLMENT("Coolment", "Coolment", 0x76CBBB),
+    MISTAZEL("Mistazel", "Mistazel", 0xFFD143),
     SURFBOY("SurfBoy", "Surfboy", 0xED6E31),
     SYSTEMZEE("SystemZee", "syszee", 0xB33B3C);
 
