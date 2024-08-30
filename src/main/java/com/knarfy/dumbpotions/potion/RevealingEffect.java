@@ -27,7 +27,7 @@ public class RevealingEffect extends MobEffect {
 
     @Override
     public @NotNull String getDescriptionId() {
-        return "effect.dumbpotions.revealing";
+        return "effect.dumbpotions.revealing_effect";
     }
 
     @Override

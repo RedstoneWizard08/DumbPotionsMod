@@ -70,18 +70,18 @@ public class DumbPotionsDataGen implements DataGeneratorEntrypoint {
         private HashMap<String, String> getPotions() {
             HashMap<String, String> potions = new HashMap<>();
 
-            potions.put("launching_potion", "The Launch Thousands of Blocks Into the Air");
-            potions.put("theme_song_potion", "Theme Song");
-            potions.put("titan_potion", "Titan");
-            potions.put("despawn_potion", "Despawn");
-            potions.put("corruption_potion", "Corruption");
+            potions.put("launching", "The Launch Thousands of Blocks Into the Air");
+            potions.put("theme_song", "Theme Song");
+            potions.put("titan", "Titan");
+            potions.put("despawn", "Despawn");
+            potions.put("corruption", "Corruption");
             potions.put("shrieking", "Shrieking");
-            potions.put("xvii_potion", "XVII");
-            potions.put("revealing_potion", "Revealing");
+            potions.put("xvii", "XVII");
+            potions.put("revealing", "Revealing");
             potions.put("furious_cocktail", "Furious Cocktail");
-            potions.put("subscribe_potion", "Subscribe!");
-            potions.put("shapeshifting_potion", "Shapeshifting");
-            potions.put("twenty_five_percent_potion", "25%");
+            potions.put("subscribe", "Subscribe!");
+            potions.put("shapeshifting", "Shapeshifting");
+            potions.put("twenty_five_percent", "25%");
 
             return potions;
         }

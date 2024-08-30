@@ -24,7 +24,7 @@ public class DespawnEffect extends MobEffect {
 
     @Override
     public @NotNull String getDescriptionId() {
-        return "effect.dumbpotions.despawn";
+        return "effect.dumbpotions.despawn_effect";
     }
 
     @Override

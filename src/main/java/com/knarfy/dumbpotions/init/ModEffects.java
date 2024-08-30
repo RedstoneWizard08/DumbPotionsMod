@@ -28,7 +28,7 @@ public class ModEffects {
         CORRUPTION_EFFECT = Registry.register(BuiltInRegistries.MOB_EFFECT,
                 new ResourceLocation("dumbpotions", "corruption_effect"), new CorruptionEffect());
 
-        REVEALING = Registry.register(BuiltInRegistries.MOB_EFFECT, new ResourceLocation("dumbpotions", "revealing"),
+        REVEALING = Registry.register(BuiltInRegistries.MOB_EFFECT, new ResourceLocation("dumbpotions", "revealing_effect"),
                 new RevealingEffect());
 
         TWENTY_FIVE_PERCENT_EFFECT = Registry.register(BuiltInRegistries.MOB_EFFECT,
@@ -58,7 +58,7 @@ public class ModEffects {
         TITAN_EFFECT = Registry.register(BuiltInRegistries.MOB_EFFECT,
                 new ResourceLocation("dumbpotions", "titan_effect"), new TitanEffect());
 
-        DESPAWN = Registry.register(BuiltInRegistries.MOB_EFFECT, new ResourceLocation("dumbpotions", "despawn"),
+        DESPAWN = Registry.register(BuiltInRegistries.MOB_EFFECT, new ResourceLocation("dumbpotions", "despawn_effect"),
                 new DespawnEffect());
 
         PLAYER_EFFECTS = new HashMap<>();
