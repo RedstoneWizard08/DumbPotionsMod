@@ -14,6 +14,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
@@ -47,7 +48,7 @@ public class PlayerEffect extends MobEffect {
                 if (Arrays.stream(entity.getServer().getPlayerNames())
                         .map(String::toLowerCase)
                         .toList()
-                        .contains(username)) {
+                        .contains(username.toLowerCase())) {
                     var pos = entity.position();
 
                     Objects.requireNonNull(entity.getServer().getPlayerList().getPlayerByName(username))
@@ -76,14 +77,19 @@ public class PlayerEffect extends MobEffect {
 
     @Override
     public void removeAttributeModifiers(LivingEntity entity, AttributeMap attributeMap, int amplifier) {
+        super.removeAttributeModifiers(entity, attributeMap, amplifier);
+
         if (!entity.level().isClientSide() && entity.getServer() != null) {
             if (Arrays.stream(entity.getServer().getPlayerNames())
                     .map(String::toLowerCase)
                     .toList()
-                    .contains(username)) {
+                    .contains(username.toLowerCase())) {
                 MinecraftServer server = entity.getServer();
+                Player player = server.getPlayerList().getPlayerByName(username);
 
-                Objects.requireNonNull(server.getPlayerList().getPlayerByName(username)).disconnect();
+                if (player instanceof EntityPlayerMPFake) {
+                    ((EntityPlayerMPFake) player).kill();
+                }
             }
         }
     }
