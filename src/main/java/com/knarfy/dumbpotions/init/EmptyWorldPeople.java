@@ -22,7 +22,10 @@ public enum EmptyWorldPeople {
     COOLMENT("Coolment", "Coolment", 0x76CBBB),
     MISTAZEL("Mistazel", "Mistazel", 0xFFD143),
     SURFBOY("SurfBoy", "Surfboy", 0xED6E31),
-    SYSTEMZEE("SystemZee", "syszee", 0xB33B3C);
+    SYSTEMZEE("SystemZee", "syszee", 0xB33B3C),
+    CRINGYGULL("CringyGull", "CringyGull", 0x52B4FF),
+    FARZY("Farzy", "Farzy", 0x00A7A0),
+    JERMSYBOY("JermsyBoy", "JermsyBoy", 0xFAED61);
 
     private final String name;
     private final String username;
