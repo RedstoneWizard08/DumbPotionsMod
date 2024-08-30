@@ -6,33 +6,23 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 
+import java.util.HashMap;
+
 public class ModEffects {
-
     public static MobEffect CORRUPTION_EFFECT;
-
     public static MobEffect REVEALING;
-
     public static MobEffect TWENTY_FIVE_PERCENT_EFFECT;
-
     public static MobEffect FURIOUS_COCKTAIL_EFFECT;
-
     public static MobEffect SHRIEKING_EFFECT;
-
     public static MobEffect SHAPESHIFTING_EFFECT;
-
     public static MobEffect THEME_SONG_EFFECT;
-
     public static MobEffect XVII_EFFECT;
-
     public static MobEffect LAUNCHING_EFFECT;
-
-    public static MobEffect SYSTEM_ZEE_POTION_EFFECT;
-
     public static MobEffect SUBSCRIBE_EFFECT;
-
     public static MobEffect TITAN_EFFECT;
-
     public static MobEffect DESPAWN;
+
+    public static HashMap<String, MobEffect> PLAYER_EFFECTS = new HashMap<>();
 
     public static void load() {
         CORRUPTION_EFFECT = Registry.register(BuiltInRegistries.MOB_EFFECT,
@@ -62,9 +52,6 @@ public class ModEffects {
         LAUNCHING_EFFECT = Registry.register(BuiltInRegistries.MOB_EFFECT,
                 new ResourceLocation("dumbpotions", "launching_effect"), new LaunchingEffect());
 
-        SYSTEM_ZEE_POTION_EFFECT = Registry.register(BuiltInRegistries.MOB_EFFECT,
-                new ResourceLocation("dumbpotions", "system_zee_potion_effect"), new SystemZeeEffect());
-
         SUBSCRIBE_EFFECT = Registry.register(BuiltInRegistries.MOB_EFFECT,
                 new ResourceLocation("dumbpotions", "subscribe_effect"), new SubscribeEffect());
 
@@ -73,6 +60,13 @@ public class ModEffects {
 
         DESPAWN = Registry.register(BuiltInRegistries.MOB_EFFECT, new ResourceLocation("dumbpotions", "despawn"),
                 new DespawnEffect());
+
+        PLAYER_EFFECTS = new HashMap<>();
+
+        for (EmptyWorldPeople person : EmptyWorldPeople.values()) {
+            PLAYER_EFFECTS.put(person.getUsername().toLowerCase(), Registry.register(BuiltInRegistries.MOB_EFFECT,
+                    new ResourceLocation("dumbpotions", person.getUsername().toLowerCase() + "_potion_effect"), new PlayerEffect(person)));
+        }
     }
 
 }

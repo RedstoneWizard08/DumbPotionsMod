@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/DumbPotionsMod.main.iml" filepath="$PROJECT_DIR$/.idea/modules/DumbPotionsMod.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/DumbPotionsMod.test.iml" filepath="$PROJECT_DIR$/.idea/modules/DumbPotionsMod.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.knarfy.dumbpotions.DumbPotionsMod.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.knarfy.dumbpotions.DumbPotionsMod.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.knarfy.dumbpotions.DumbPotionsMod.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.knarfy.dumbpotions.DumbPotionsMod.test.iml" />
     </modules>
   </component>
 </project>

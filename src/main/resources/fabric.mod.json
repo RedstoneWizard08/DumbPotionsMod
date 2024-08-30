@@ -20,6 +20,9 @@
     ],
     "client": [
       "com.knarfy.dumbpotions.DumbPotionsClient"
+    ],
+    "fabric-datagen": [
+      "com.knarfy.dumbpotions.DumbPotionsDataGen"
     ]
   },
   "depends": {

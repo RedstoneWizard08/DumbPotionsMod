@@ -33,7 +33,7 @@ public class GivePotionsCommand {
                     Component.literal("Level 1").withStyle(ChatFormatting.GREEN, ChatFormatting.BOLD)));
 
             meta.setItem(2, PotionUtils.setPotion(new ItemStack(Items.POTION, 1), ModPotions.SHRIEKING));
-            meta.setItem(3, PotionUtils.setPotion(new ItemStack(Items.POTION, 1), ModPotions.SYSTEM_ZEE_POTION));
+            meta.setItem(3, PotionUtils.setPotion(new ItemStack(Items.POTION, 1), ModPotions.PLAYER_POTIONS.get("syszee")));
             meta.setItem(4, PotionUtils.setPotion(new ItemStack(Items.POTION, 1), ModPotions.SHAPESHIFTING_POTION));
             meta.setItem(5, PotionUtils.setPotion(new ItemStack(Items.POTION, 1), ModPotions.THEME_SONG_POTION));
             meta.setItem(6, PotionUtils.setPotion(new ItemStack(Items.POTION, 1), ModPotions.SUBSCRIBE_POTION));

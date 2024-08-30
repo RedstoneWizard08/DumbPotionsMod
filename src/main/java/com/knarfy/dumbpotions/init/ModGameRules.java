@@ -7,17 +7,23 @@ import net.minecraft.world.level.GameRules.Category;
 import net.minecraft.world.level.GameRules.IntegerValue;
 import net.minecraft.world.level.GameRules.Key;
 
+import java.util.HashMap;
+
 public class ModGameRules {
-
-    public static Key<BooleanValue> SYSTEM_ZEE_TP;
-
     public static Key<IntegerValue> SHRIEK_COUNTER;
 
+    public static HashMap<String, Key<BooleanValue>> PLAYER_KEYS;
+
     public static void load() {
-        SYSTEM_ZEE_TP = GameRuleRegistry.register("system_zee_tp", Category.PLAYER,
-                GameRuleFactory.createBooleanRule(true));
         SHRIEK_COUNTER = GameRuleRegistry.register("shriek_counter", Category.SPAWNING,
                 GameRuleFactory.createIntRule(0));
+
+        PLAYER_KEYS = new HashMap<>();
+
+        for (EmptyWorldPeople person : EmptyWorldPeople.values()) {
+            PLAYER_KEYS.put(person.getUsername().toLowerCase(), GameRuleRegistry.register(person.getUsername().toLowerCase() + "_tp", Category.PLAYER,
+                    GameRuleFactory.createBooleanRule(true)));
+        }
     }
 
 }

@@ -1,3 +1,4 @@
 accessWidener v1 named
 
 accessible field net/minecraft/world/item/CreativeModeTabs SPAWN_EGGS Lnet/minecraft/resources/ResourceKey;
+accessible field net/minecraft/data/DataGenerator$PackGenerator output Lnet/minecraft/data/PackOutput;

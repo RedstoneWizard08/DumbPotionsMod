@@ -2,7 +2,7 @@
 
 plugins {
     id("java")
-    id("fabric-loom") version "1.5-SNAPSHOT"
+    id("fabric-loom") version "1.6-SNAPSHOT"
 }
 
 version = project.property("mod_version")!!
@@ -25,6 +25,10 @@ tasks.withType<Jar> {
     from("LICENSE")
 
     archiveBaseName.set(project.property("mod_id")!! as String)
+}
+
+fabricApi {
+    configureDataGeneration()
 }
 
 loom {

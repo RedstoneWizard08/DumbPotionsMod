@@ -1,11 +1,13 @@
 package com.knarfy.dumbpotions.potion;
 
 import carpet.patches.EntityPlayerMPFake;
+import com.knarfy.dumbpotions.init.EmptyWorldPeople;
 import com.knarfy.dumbpotions.init.ModGameRules;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffect;
@@ -19,15 +21,18 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class SystemZeeEffect extends MobEffect {
+public class PlayerEffect extends MobEffect {
+    private final String username;
 
-    public SystemZeeEffect() {
-        super(MobEffectCategory.BENEFICIAL, -13382401);
+    public PlayerEffect(EmptyWorldPeople person) {
+        super(MobEffectCategory.BENEFICIAL, person.getColor());
+
+        this.username = person.getUsername();
     }
 
     @Override
     public @NotNull String getDescriptionId() {
-        return "effect.dumbpotions.system_zee_potion_effect";
+        return "effect.dumbpotions." + username.toLowerCase() + "_potion_effect";
     }
 
     @Override
@@ -37,18 +42,18 @@ public class SystemZeeEffect extends MobEffect {
         double y = entity.getY();
         double z = entity.getZ();
 
-        if (world.getLevelData().getGameRules().getBoolean(ModGameRules.SYSTEM_ZEE_TP)) {
+        if (world.getLevelData().getGameRules().getBoolean(ModGameRules.PLAYER_KEYS.get(username.toLowerCase()))) {
             if (!entity.level().isClientSide() && entity.getServer() != null) {
                 if (Arrays.stream(entity.getServer().getPlayerNames())
                         .map(String::toLowerCase)
                         .toList()
-                        .contains("syszee")) {
+                        .contains(username)) {
                     var pos = entity.position();
 
-                    Objects.requireNonNull(entity.getServer().getPlayerList().getPlayerByName("syszee"))
+                    Objects.requireNonNull(entity.getServer().getPlayerList().getPlayerByName(username))
                             .teleportTo(pos.x, pos.y, pos.z);
                 } else {
-                    EntityPlayerMPFake.createFake("syszee", entity.getServer(), entity.position(), 0, 0,
+                    EntityPlayerMPFake.createFake(username, entity.getServer(), entity.position(), 0, 0,
                             entity.level().dimension(), GameType.SURVIVAL, false);
                 }
             }
@@ -70,8 +75,21 @@ public class SystemZeeEffect extends MobEffect {
     }
 
     @Override
+    public void removeAttributeModifiers(LivingEntity entity, AttributeMap attributeMap, int amplifier) {
+        if (!entity.level().isClientSide() && entity.getServer() != null) {
+            if (Arrays.stream(entity.getServer().getPlayerNames())
+                    .map(String::toLowerCase)
+                    .toList()
+                    .contains(username)) {
+                MinecraftServer server = entity.getServer();
+
+                Objects.requireNonNull(server.getPlayerList().getPlayerByName(username)).disconnect();
+            }
+        }
+    }
+
+    @Override
     public boolean isDurationEffectTick(int duration, int amplifier) {
         return true;
     }
-
 }
