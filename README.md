@@ -1,5 +1,7 @@
 # Dumb Potions Mod
 
+[![Modrinth Version](https://img.shields.io/modrinth/v/knarfys-dumb-potions-mod-ce?style=for-the-badge)](https://modrinth.com/mod/knarfys-dumb-potions-mod-ce)
+
 Knarfy's Dumb Potion Ideas mod!
 
 This is a version of Knarfy's dumb potion ideas mod that fixes several
