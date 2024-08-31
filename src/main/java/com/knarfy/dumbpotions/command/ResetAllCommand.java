@@ -18,8 +18,8 @@ import static com.knarfy.dumbpotions.potion.ShapeshiftingEffect.unequip;
 public class ResetAllCommand {
 
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
-        dispatcher.register(Commands.literal("resetall").executes(arguments -> {
-            var player = Objects.requireNonNull(arguments.getSource().getPlayer());
+        dispatcher.register(Commands.literal("resetall").executes(ctx -> {
+            var player = Objects.requireNonNull(ctx.getSource().getPlayer());
             var level = player.serverLevel();
 
             player.removeAllEffects();

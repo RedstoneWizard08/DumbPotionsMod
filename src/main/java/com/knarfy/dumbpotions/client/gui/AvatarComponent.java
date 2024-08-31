@@ -4,7 +4,10 @@ import com.knarfy.dumbpotions.DumbPotions;
 import com.mojang.blaze3d.platform.NativeImage;
 import com.mojang.blaze3d.systems.RenderSystem;
 import io.wispforest.owo.ui.base.BaseComponent;
-import io.wispforest.owo.ui.core.*;
+import io.wispforest.owo.ui.core.AnimatableProperty;
+import io.wispforest.owo.ui.core.OwoUIDrawContext;
+import io.wispforest.owo.ui.core.PositionedRectangle;
+import io.wispforest.owo.ui.core.Sizing;
 import io.wispforest.owo.ui.parsing.UIModel;
 import io.wispforest.owo.ui.parsing.UIParsing;
 import net.fabricmc.api.EnvType;
@@ -21,15 +24,24 @@ import java.util.Map;
 @Environment(EnvType.CLIENT)
 @SuppressWarnings("UnusedReturnValue")
 public class AvatarComponent extends BaseComponent {
+    private static final Map<String, ResourceLocation> cachedImages = new HashMap<>();
     protected final ResourceLocation tex;
     protected final int u, v;
     protected final int regionWidth, regionHeight;
     protected final int textureWidth, textureHeight;
-
     protected final AnimatableProperty<PositionedRectangle> visibleArea;
     protected boolean blend = false;
 
-    private static final Map<String, ResourceLocation> cachedImages = new HashMap<>();
+    protected AvatarComponent(String player, int u, int v, int regionWidth, int regionHeight, int textureWidth, int textureHeight) throws IOException {
+        this.tex = getImage(player);
+        this.u = u;
+        this.v = v;
+        this.regionWidth = regionWidth;
+        this.regionHeight = regionHeight;
+        this.textureWidth = textureWidth;
+        this.textureHeight = textureHeight;
+        this.visibleArea = AnimatableProperty.of(PositionedRectangle.of(0, 0, this.regionWidth, this.regionHeight));
+    }
 
     public static void preloadImages(Minecraft client) {
         DumbPotions.LOGGER.info("Preloading avatar images...");
@@ -38,7 +50,7 @@ public class AvatarComponent extends BaseComponent {
             getImage("Knarfy");
             getImage(client.getUser().getName());
         } catch (IOException ex) {
-            DumbPotions.LOGGER.error("Could not preload avatar images: " + ex.getMessage());
+            DumbPotions.LOGGER.error("Could not preload avatar images: {}", ex.getMessage());
         }
 
         DumbPotions.LOGGER.info("Preloaded avatar images!");
@@ -60,15 +72,37 @@ public class AvatarComponent extends BaseComponent {
         return loc;
     }
 
-    protected AvatarComponent(String player, int u, int v, int regionWidth, int regionHeight, int textureWidth, int textureHeight) throws IOException {
-        this.tex = getImage(player);
-        this.u = u;
-        this.v = v;
-        this.regionWidth = regionWidth;
-        this.regionHeight = regionHeight;
-        this.textureWidth = textureWidth;
-        this.textureHeight = textureHeight;
-        this.visibleArea = AnimatableProperty.of(PositionedRectangle.of(0, 0, this.regionWidth, this.regionHeight));
+    public static AvatarComponent parse(Element element) throws IOException {
+        UIParsing.expectAttributes(element, "player");
+
+        var player = element.getAttributeNode("player").getValue();
+        int u = 0, v = 0, regionWidth = 0, regionHeight = 0, textureWidth = 256, textureHeight = 256;
+
+        if (element.hasAttribute("u")) {
+            u = UIParsing.parseSignedInt(element.getAttributeNode("u"));
+        }
+
+        if (element.hasAttribute("v")) {
+            v = UIParsing.parseSignedInt(element.getAttributeNode("v"));
+        }
+
+        if (element.hasAttribute("region-width")) {
+            regionWidth = UIParsing.parseSignedInt(element.getAttributeNode("region-width"));
+        }
+
+        if (element.hasAttribute("region-height")) {
+            regionHeight = UIParsing.parseSignedInt(element.getAttributeNode("region-height"));
+        }
+
+        if (element.hasAttribute("texture-width")) {
+            textureWidth = UIParsing.parseSignedInt(element.getAttributeNode("texture-width"));
+        }
+
+        if (element.hasAttribute("texture-height")) {
+            textureHeight = UIParsing.parseSignedInt(element.getAttributeNode("texture-height"));
+        }
+
+        return new AvatarComponent(player, u, v, regionWidth, regionHeight, textureWidth, textureHeight);
     }
 
     @Override
@@ -177,38 +211,5 @@ public class AvatarComponent extends BaseComponent {
 
             this.visibleArea(PositionedRectangle.of(x, y, width, height));
         }
-    }
-
-    public static AvatarComponent parse(Element element) throws IOException {
-        UIParsing.expectAttributes(element, "player");
-
-        var player = element.getAttributeNode("player").getValue();
-        int u = 0, v = 0, regionWidth = 0, regionHeight = 0, textureWidth = 256, textureHeight = 256;
-
-        if (element.hasAttribute("u")) {
-            u = UIParsing.parseSignedInt(element.getAttributeNode("u"));
-        }
-
-        if (element.hasAttribute("v")) {
-            v = UIParsing.parseSignedInt(element.getAttributeNode("v"));
-        }
-
-        if (element.hasAttribute("region-width")) {
-            regionWidth = UIParsing.parseSignedInt(element.getAttributeNode("region-width"));
-        }
-
-        if (element.hasAttribute("region-height")) {
-            regionHeight = UIParsing.parseSignedInt(element.getAttributeNode("region-height"));
-        }
-
-        if (element.hasAttribute("texture-width")) {
-            textureWidth = UIParsing.parseSignedInt(element.getAttributeNode("texture-width"));
-        }
-
-        if (element.hasAttribute("texture-height")) {
-            textureHeight = UIParsing.parseSignedInt(element.getAttributeNode("texture-height"));
-        }
-
-        return new AvatarComponent(player, u, v, regionWidth, regionHeight, textureWidth, textureHeight);
     }
 }

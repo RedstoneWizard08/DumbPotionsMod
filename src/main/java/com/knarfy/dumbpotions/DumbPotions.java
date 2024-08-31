@@ -1,7 +1,7 @@
 package com.knarfy.dumbpotions;
 
-import com.knarfy.dumbpotions.screen.SubscribeHandler;
 import com.knarfy.dumbpotions.init.*;
+import com.knarfy.dumbpotions.screen.SubscribeHandler;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.MenuType;
@@ -16,13 +16,13 @@ public class DumbPotions implements ModInitializer {
     public void onInitialize() {
         LOGGER.info("Initializing Knarfy's Dumb Potions mod!");
 
-        ModGameRules.load();
-        ModEffects.load();
-        ModPotions.load();
-        ModEntities.load();
-        ModItems.load();
-        ModCommands.load();
-        ModSounds.load();
+        ModGameRules.init();
+        ModEffects.init();
+        ModPotions.init();
+        ModEntities.init();
+        ModItems.init();
+        ModCommands.init();
+        ModSounds.init();
     }
 
     public static final MenuType<SubscribeHandler> SUBSCRIBE_HANDLER_MENU_TYPE = new MenuType<>(SubscribeHandler::new,

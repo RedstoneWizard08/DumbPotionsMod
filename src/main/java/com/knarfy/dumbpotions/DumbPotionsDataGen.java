@@ -3,7 +3,7 @@ package com.knarfy.dumbpotions;
 import com.google.common.hash.HashCode;
 import com.google.common.hash.Hashing;
 import com.google.common.hash.HashingOutputStream;
-import com.knarfy.dumbpotions.init.EmptyWorldPeople;
+import com.knarfy.dumbpotions.util.EmptyWorldPeople;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -60,10 +60,15 @@ public class DumbPotionsDataGen implements DataGeneratorEntrypoint {
             b.add("subtitles.yay", "YAAAAAAYYYYYYY!!");
             b.add("subtitles.themesongs", "Theme Song Plays");
             b.add("subtitles.slidewhistleup", "Entity Launches");
+            b.add("subtitles.breaking", "Breaking Minecraft with Your Dumb Ideas");
+
             b.add("gamerule.shriek_counter", "Shriek Counter");
             b.add("gamerule.shriek_counter.description", "How many potions have been consumed (2+ spawns a warden)_");
+
             b.add("item.dumbpotions.invisible_spawn_egg", "Invisible Spawn Egg");
+
             b.add("death.attack.25%", "You found the 25% Chance of Death");
+
             b.add("text.kick.corruption", "Your game has been corrupted.");
         }
 
@@ -82,6 +87,7 @@ public class DumbPotionsDataGen implements DataGeneratorEntrypoint {
             potions.put("subscribe", "Subscribe!");
             potions.put("shapeshifting", "Shapeshifting");
             potions.put("twenty_five_percent", "25%");
+            potions.put("breaking", "Breaking");
 
             return potions;
         }

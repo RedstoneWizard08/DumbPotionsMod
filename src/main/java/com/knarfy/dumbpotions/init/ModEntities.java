@@ -14,7 +14,7 @@ public class ModEntities {
 
     public static EntityType<InvisibleEntity> INVISIBLE;
 
-    public static void load() {
+    public static void init() {
         INVISIBLE = Registry.register(BuiltInRegistries.ENTITY_TYPE, new ResourceLocation("dumbpotions", "invisible"),
                 FabricEntityTypeBuilder.create(MobCategory.MONSTER, InvisibleEntity::new)
                         .dimensions(new EntityDimensions(0.6F, 1.8F, true))

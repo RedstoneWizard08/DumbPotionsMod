@@ -13,7 +13,7 @@ import net.minecraft.client.gui.screens.MenuScreens;
 public class DumbPotionsClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        ModEntityRenderers.load();
+        ModEntityRenderers.init();
 
         MenuScreens.register(DumbPotions.SUBSCRIBE_HANDLER_MENU_TYPE, SubscribeScreen::new);
         ClientLifecycleEvents.CLIENT_STARTED.register(AvatarComponent::preloadImages);

@@ -2,11 +2,8 @@ package com.knarfy.dumbpotions.potion;
 
 import com.knarfy.dumbpotions.init.ModSounds;
 import com.knarfy.dumbpotions.screen.SubscribeHandler;
-import com.knarfy.dumbpotions.util.TitleUtil;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.MenuProvider;
@@ -19,8 +16,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Objects;
 
 public class SubscribeEffect extends MobEffect {
 

@@ -7,7 +7,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 
 @Environment(EnvType.CLIENT)
 public class ModEntityRenderers {
-    public static void load() {
+    public static void init() {
         EntityRendererRegistry.register(ModEntities.INVISIBLE, InvisibleRenderer::new);
     }
 }

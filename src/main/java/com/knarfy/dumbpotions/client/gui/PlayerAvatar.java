@@ -25,7 +25,7 @@ public class PlayerAvatar {
                 out.write(chunk, 0, n);
             }
         } catch (IOException ex) {
-            DumbPotions.LOGGER.error("Cannot read bytes from player avatar URL: " + ex.getMessage());
+            DumbPotions.LOGGER.error("Cannot read bytes from player avatar URL: {}", ex.getMessage());
 
             return null;
         } finally {
@@ -33,7 +33,7 @@ public class PlayerAvatar {
                 try {
                     in.close();
                 } catch (IOException ex) {
-                    DumbPotions.LOGGER.error("Cannot close InputStream: " + ex.getMessage());
+                    DumbPotions.LOGGER.error("Cannot close InputStream: {}", ex.getMessage());
                 }
             }
         }

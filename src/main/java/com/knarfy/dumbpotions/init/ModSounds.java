@@ -15,12 +15,15 @@ public class ModSounds {
 
     public static SoundEvent YAY = SoundEvent.createVariableRangeEvent(new ResourceLocation("dumbpotions", "yay"));
 
-    public static void load() {
+    public static SoundEvent BREAKING = SoundEvent.createVariableRangeEvent(new ResourceLocation("dumbpotions", "breaking"));
+
+    public static void init() {
         Registry.register(BuiltInRegistries.SOUND_EVENT, new ResourceLocation("dumbpotions", "themesongs"),
                 THEME_SONGS);
         Registry.register(BuiltInRegistries.SOUND_EVENT, new ResourceLocation("dumbpotions", "slidewhistleup"),
                 SLIDE_WHISTLE_UP);
         Registry.register(BuiltInRegistries.SOUND_EVENT, new ResourceLocation("dumbpotions", "yay"), YAY);
+        Registry.register(BuiltInRegistries.SOUND_EVENT, new ResourceLocation("dumbpotions", "breaking"), BREAKING);
     }
 
 }

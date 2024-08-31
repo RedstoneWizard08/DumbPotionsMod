@@ -130,7 +130,7 @@ public class InvisibleEntity extends Monster {
         double z = this.getZ();
         Level world = this.level();
 
-        Entity var10 = world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 3.0, 3.0, 3.0), e -> true)
+        Entity entity = world.getEntitiesOfClass(Player.class, AABB.ofSize(new Vec3(x, y, z), 3.0, 3.0, 3.0), e -> true)
                 .stream()
                 .min((new Object() {
                     Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
@@ -138,9 +138,9 @@ public class InvisibleEntity extends Monster {
                     }
                 }).compareDistOf(x, y, z))
                 .orElse(null);
-        if (var10 instanceof LivingEntity _ent) {
+
+        if (entity instanceof LivingEntity _ent) {
             setTarget(_ent);
         }
     }
-
 }

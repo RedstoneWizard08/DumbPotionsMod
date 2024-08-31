@@ -1,5 +1,6 @@
 package com.knarfy.dumbpotions.init;
 
+import com.knarfy.dumbpotions.util.EmptyWorldPeople;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.minecraft.world.level.GameRules.BooleanValue;
@@ -14,7 +15,7 @@ public class ModGameRules {
 
     public static HashMap<String, Key<BooleanValue>> PLAYER_KEYS;
 
-    public static void load() {
+    public static void init() {
         SHRIEK_COUNTER = GameRuleRegistry.register("shriek_counter", Category.SPAWNING,
                 GameRuleFactory.createIntRule(0));
 

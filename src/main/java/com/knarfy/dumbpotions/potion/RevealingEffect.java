@@ -7,7 +7,6 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RevealingEffect extends MobEffect {
-    private List<InvisibleEntity> entities = new ArrayList<>();
+    private final List<InvisibleEntity> entities = new ArrayList<>();
 
 
     public RevealingEffect() {

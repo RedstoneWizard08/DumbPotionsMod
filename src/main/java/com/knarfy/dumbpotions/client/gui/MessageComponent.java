@@ -30,7 +30,7 @@ public class MessageComponent {
                     AVATAR_SIZE
             );
         } catch (IOException ex) {
-            DumbPotions.LOGGER.error("Unable to create a player avatar: " + ex.getMessage());
+            DumbPotions.LOGGER.error("Unable to create a player avatar: {}", ex.getMessage());
         }
 
         this.text = text;

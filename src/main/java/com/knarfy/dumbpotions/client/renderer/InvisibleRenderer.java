@@ -2,7 +2,6 @@ package com.knarfy.dumbpotions.client.renderer;
 
 import com.knarfy.dumbpotions.entity.InvisibleEntity;
 import com.knarfy.dumbpotions.init.ModEffects;
-import com.knarfy.dumbpotions.potion.RevealingEffect;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
@@ -13,7 +12,6 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
 import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.NotNull;
 

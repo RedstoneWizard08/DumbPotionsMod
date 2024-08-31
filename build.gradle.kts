@@ -67,6 +67,10 @@ repositories {
     maven {
         url = uri("https://maven.wispforest.io")
     }
+
+    maven {
+        url = uri("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1")
+    }
 }
 
 dependencies {
@@ -89,6 +93,7 @@ dependencies {
     modRuntimeOnly("curse.maven:pehkui-319596:5208259")
     modRuntimeOnly("dev.draylar.omega-config:omega-config-base:1.4.0+1.20.1")
     modRuntimeOnly("dev.architectury:architectury-fabric:9.2.14")
+    modRuntimeOnly("me.djtheredstoner:DevAuth-fabric:1.2.1")
 }
 
 tasks.withType<ProcessResources> {

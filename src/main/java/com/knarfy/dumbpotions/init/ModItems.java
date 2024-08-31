@@ -13,7 +13,7 @@ public class ModItems {
 
     public static Item INVISIBLE_SPAWN_EGG;
 
-    public static void load() {
+    public static void init() {
         INVISIBLE_SPAWN_EGG = Registry.register(BuiltInRegistries.ITEM,
                 new ResourceLocation("dumbpotions", "invisible_spawn_egg"),
                 new SpawnEggItem(ModEntities.INVISIBLE, -1, -6710887, new Properties()));

@@ -1,8 +1,8 @@
 package com.knarfy.dumbpotions.potion;
 
 import carpet.patches.EntityPlayerMPFake;
-import com.knarfy.dumbpotions.init.EmptyWorldPeople;
 import com.knarfy.dumbpotions.init.ModGameRules;
+import com.knarfy.dumbpotions.util.EmptyWorldPeople;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -88,7 +88,7 @@ public class PlayerEffect extends MobEffect {
                 Player player = server.getPlayerList().getPlayerByName(username);
 
                 if (player instanceof EntityPlayerMPFake) {
-                    ((EntityPlayerMPFake) player).kill();
+                    player.kill();
                 }
             }
         }

@@ -1,5 +1,6 @@
 package com.knarfy.dumbpotions.init;
 
+import com.knarfy.dumbpotions.util.EmptyWorldPeople;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -14,71 +15,76 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ModPotions {
-    public static Potion CORRUPTION_POTION;
-    public static Potion REVEALING_POTION;
-    public static Potion TWENTY_FIVE_PERCENT_POTION;
+    public static Potion CORRUPTION;
+    public static Potion REVEALING;
+    public static Potion TWENTY_FIVE_PERCENT;
     public static Potion FURIOUS_COCKTAIL;
     public static Potion SHRIEKING;
-    public static Potion SHAPESHIFTING_POTION;
-    public static Potion THEME_SONG_POTION;
-    public static Potion XVII_POTION;
-    public static Potion LAUNCHING_POTION;
-    public static Potion SUBSCRIBE_POTION;
-    public static Potion TITAN_POTION;
-    public static Potion DESPAWN_POTION;
+    public static Potion SHAPESHIFTING;
+    public static Potion THEME_SONG;
+    public static Potion XVII;
+    public static Potion LAUNCHING;
+    public static Potion SUBSCRIBE;
+    public static Potion TITAN;
+    public static Potion DESPAWN;
+    public static Potion BREAKING;
 
     public static List<Potion> ALL;
     public static HashMap<String, Potion> PLAYER_POTIONS = new HashMap<>();
 
-    public static void load() {
-        CORRUPTION_POTION = Registry.register(BuiltInRegistries.POTION,
+    public static void init() {
+        CORRUPTION = Registry.register(BuiltInRegistries.POTION,
                 new ResourceLocation("dumbpotions", "corruption"),
-                new Potion(new MobEffectInstance(ModEffects.CORRUPTION_EFFECT, 3600, 0, false, true)));
+                new Potion(new MobEffectInstance(ModEffects.CORRUPTION, 3600, 0, false, true)));
 
-        REVEALING_POTION = Registry.register(BuiltInRegistries.POTION,
+        REVEALING = Registry.register(BuiltInRegistries.POTION,
                 new ResourceLocation("dumbpotions", "revealing"),
                 new Potion(new MobEffectInstance(ModEffects.REVEALING, 3600, 0, false, true)));
 
-        TWENTY_FIVE_PERCENT_POTION = Registry.register(BuiltInRegistries.POTION,
+        TWENTY_FIVE_PERCENT = Registry.register(BuiltInRegistries.POTION,
                 new ResourceLocation("dumbpotions", "twenty_five_percent"),
-                new Potion(new MobEffectInstance(ModEffects.TWENTY_FIVE_PERCENT_EFFECT, 3600, 0, false, true)));
+                new Potion(new MobEffectInstance(ModEffects.TWENTY_FIVE_PERCENT, 3600, 0, false, true)));
 
         FURIOUS_COCKTAIL = Registry.register(BuiltInRegistries.POTION,
                 new ResourceLocation("dumbpotions", "furious_cocktail"),
-                new Potion(new MobEffectInstance(ModEffects.FURIOUS_COCKTAIL_EFFECT, 3600, 0, false, true)));
+                new Potion(new MobEffectInstance(ModEffects.FURIOUS_COCKTAIL, 3600, 0, false, true)));
 
         SHRIEKING = Registry.register(BuiltInRegistries.POTION, new ResourceLocation("dumbpotions", "shrieking"),
-                new Potion(new MobEffectInstance(ModEffects.SHRIEKING_EFFECT, 240, 0, false, true)));
+                new Potion(new MobEffectInstance(ModEffects.SHRIEKING, 240, 0, false, true)));
 
-        SHAPESHIFTING_POTION = Registry.register(BuiltInRegistries.POTION,
+        SHAPESHIFTING = Registry.register(BuiltInRegistries.POTION,
                 new ResourceLocation("dumbpotions", "shapeshifting"),
-                new Potion(new MobEffectInstance(ModEffects.SHAPESHIFTING_EFFECT, 3600, 0, false, true)));
+                new Potion(new MobEffectInstance(ModEffects.SHAPESHIFTING, 3600, 0, false, true)));
 
-        THEME_SONG_POTION = Registry.register(BuiltInRegistries.POTION,
+        THEME_SONG = Registry.register(BuiltInRegistries.POTION,
                 new ResourceLocation("dumbpotions", "theme_song"),
-                new Potion(new MobEffectInstance(ModEffects.THEME_SONG_EFFECT, 4800, 0, false, true)));
+                new Potion(new MobEffectInstance(ModEffects.THEME_SONG, 4800, 0, false, true)));
 
-        XVII_POTION = Registry.register(BuiltInRegistries.POTION, new ResourceLocation("dumbpotions", "xvii"),
-                new Potion(new MobEffectInstance(ModEffects.XVII_EFFECT, 340, 0, false, true)));
+        XVII = Registry.register(BuiltInRegistries.POTION, new ResourceLocation("dumbpotions", "xvii"),
+                new Potion(new MobEffectInstance(ModEffects.XVII, 340, 0, false, true)));
 
-        LAUNCHING_POTION = Registry.register(BuiltInRegistries.POTION,
+        LAUNCHING = Registry.register(BuiltInRegistries.POTION,
                 new ResourceLocation("dumbpotions", "launching"),
-                new Potion(new MobEffectInstance(ModEffects.LAUNCHING_EFFECT, 100, 0, false, true)));
+                new Potion(new MobEffectInstance(ModEffects.LAUNCHING, 100, 0, false, true)));
 
-        SUBSCRIBE_POTION = Registry.register(BuiltInRegistries.POTION,
+        SUBSCRIBE = Registry.register(BuiltInRegistries.POTION,
                 new ResourceLocation("dumbpotions", "subscribe"),
-                new Potion(new MobEffectInstance(ModEffects.SUBSCRIBE_EFFECT, 200, 0, false, true)));
+                new Potion(new MobEffectInstance(ModEffects.SUBSCRIBE, 200, 0, false, true)));
 
-        TITAN_POTION = Registry.register(BuiltInRegistries.POTION, new ResourceLocation("dumbpotions", "titan"),
-                new Potion(new MobEffectInstance(ModEffects.TITAN_EFFECT, 3600, 0, false, true)));
+        TITAN = Registry.register(BuiltInRegistries.POTION, new ResourceLocation("dumbpotions", "titan"),
+                new Potion(new MobEffectInstance(ModEffects.TITAN, 3600, 0, false, true)));
 
-        DESPAWN_POTION = Registry.register(BuiltInRegistries.POTION,
+        DESPAWN = Registry.register(BuiltInRegistries.POTION,
                 new ResourceLocation("dumbpotions", "despawn"),
                 new Potion(new MobEffectInstance(ModEffects.DESPAWN, 600, 0, false, true)));
 
-        ALL = new ArrayList<>(List.of(CORRUPTION_POTION, REVEALING_POTION, TWENTY_FIVE_PERCENT_POTION, FURIOUS_COCKTAIL, SHRIEKING,
-                SHAPESHIFTING_POTION, THEME_SONG_POTION, XVII_POTION, LAUNCHING_POTION,
-                SUBSCRIBE_POTION, TITAN_POTION, DESPAWN_POTION));
+        BREAKING = Registry.register(BuiltInRegistries.POTION,
+                new ResourceLocation("dumbpotions", "breaking"),
+                new Potion(new MobEffectInstance(ModEffects.BREAKING, 100, 0, false, true)));
+
+        ALL = new ArrayList<>(List.of(CORRUPTION, REVEALING, TWENTY_FIVE_PERCENT, FURIOUS_COCKTAIL, SHRIEKING,
+                SHAPESHIFTING, THEME_SONG, XVII, LAUNCHING,
+                SUBSCRIBE, TITAN, DESPAWN, BREAKING));
 
         for (EmptyWorldPeople person : EmptyWorldPeople.values()) {
             Potion item = Registry.register(BuiltInRegistries.POTION,
@@ -90,16 +96,21 @@ public class ModPotions {
         }
 
         PotionBrewing.addMix(Potions.AWKWARD, Items.SCULK_CATALYST, SHRIEKING);
-        PotionBrewing.addMix(Potions.AWKWARD, Items.MUTTON, SHAPESHIFTING_POTION);
-        PotionBrewing.addMix(Potions.AWKWARD, Items.NOTE_BLOCK, THEME_SONG_POTION);
-        PotionBrewing.addMix(Potions.AWKWARD, Items.IRON_INGOT, SUBSCRIBE_POTION);
-        PotionBrewing.addMix(Potions.AWKWARD, Items.NETHER_STAR, CORRUPTION_POTION);
-        PotionBrewing.addMix(Potions.AWKWARD, Items.ENDER_EYE, REVEALING_POTION);
-        PotionBrewing.addMix(Potions.AWKWARD, Items.CHORUS_FRUIT, DESPAWN_POTION);
+        PotionBrewing.addMix(Potions.AWKWARD, Items.MUTTON, SHAPESHIFTING);
+        PotionBrewing.addMix(Potions.AWKWARD, Items.NOTE_BLOCK, THEME_SONG);
+        PotionBrewing.addMix(Potions.AWKWARD, Items.IRON_INGOT, SUBSCRIBE);
+        PotionBrewing.addMix(Potions.AWKWARD, Items.NETHER_STAR, CORRUPTION);
+        PotionBrewing.addMix(Potions.AWKWARD, Items.ENDER_EYE, REVEALING);
+        PotionBrewing.addMix(Potions.AWKWARD, Items.CHORUS_FRUIT, DESPAWN);
         PotionBrewing.addMix(Potions.AWKWARD, Items.SUSPICIOUS_STEW, FURIOUS_COCKTAIL);
-        PotionBrewing.addMix(Potions.AWKWARD, Items.AXOLOTL_BUCKET, XVII_POTION);
-        PotionBrewing.addMix(Potions.AWKWARD, Items.TNT, LAUNCHING_POTION);
-        PotionBrewing.addMix(Potions.AWKWARD, Items.ROTTEN_FLESH, TITAN_POTION);
-        PotionBrewing.addMix(Potions.AWKWARD, Items.DRAGON_HEAD, TWENTY_FIVE_PERCENT_POTION);
+        PotionBrewing.addMix(Potions.AWKWARD, Items.AXOLOTL_BUCKET, XVII);
+        PotionBrewing.addMix(Potions.AWKWARD, Items.LADDER, LAUNCHING);
+        PotionBrewing.addMix(Potions.AWKWARD, Items.ROTTEN_FLESH, TITAN);
+        PotionBrewing.addMix(Potions.AWKWARD, Items.DRAGON_HEAD, TWENTY_FIVE_PERCENT);
+        PotionBrewing.addMix(Potions.AWKWARD, Items.DRAGON_BREATH, BREAKING);
+
+        for (EmptyWorldPeople person : EmptyWorldPeople.values()) {
+            PotionBrewing.addMix(Potions.AWKWARD, person.getIngredient(), PLAYER_POTIONS.get(person.getUsername()));
+        }
     }
 }
