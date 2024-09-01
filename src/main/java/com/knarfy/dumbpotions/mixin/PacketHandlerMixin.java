@@ -1,6 +1,6 @@
 package com.knarfy.dumbpotions.mixin;
 
-import com.knarfy.dumbpotions.config.ModConfig;
+import com.knarfy.dumbpotions.DumbPotions;
 import com.knarfy.dumbpotions.init.ModSounds;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientPacketListener;
@@ -33,7 +33,7 @@ public class PacketHandlerMixin {
 
         System.out.println("SoundEvent: " + key.get().location());
 
-        if (key.isPresent() && key.get().location() == ModSounds.THEME_SONGS.getLocation() && ModConfig.creatorMode()) {
+        if (key.isPresent() && key.get().location() == ModSounds.THEME_SONGS.getLocation() && DumbPotions.CONFIG.creatorMode()) {
             return;
         }
 
