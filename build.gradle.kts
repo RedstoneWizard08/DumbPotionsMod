@@ -33,6 +33,12 @@ fabricApi {
 
 loom {
     accessWidenerPath = file("src/main/resources/dumbpotions.accesswidener")
+
+    runs {
+        named("client") {
+            vmArg("-Dmixin.debug.export=true")
+        }
+    }
 }
 
 repositories {
