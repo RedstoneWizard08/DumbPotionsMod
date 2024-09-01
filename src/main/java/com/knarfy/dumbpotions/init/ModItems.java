@@ -10,7 +10,6 @@ import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.item.SpawnEggItem;
 
 public class ModItems {
-
     public static Item INVISIBLE_SPAWN_EGG;
 
     public static void init() {
@@ -21,5 +20,4 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS)
                 .register(content -> content.accept(INVISIBLE_SPAWN_EGG));
     }
-
 }

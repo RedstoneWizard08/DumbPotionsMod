@@ -71,6 +71,10 @@ repositories {
     maven {
         url = uri("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1")
     }
+
+    maven {
+        url = uri("https://api.modrinth.com/maven")
+    }
 }
 
 dependencies {
@@ -89,11 +93,17 @@ dependencies {
     modApi("carpet:fabric-carpet:1.20-1.4.112+v230608")
 
     modCompileOnly("com.github.Virtuoel:Pehkui:3.8.0")
+
     modRuntimeOnly("com.github.Virtuoel:KanosConfig:0.4.1")
     modRuntimeOnly("curse.maven:pehkui-319596:5208259")
     modRuntimeOnly("dev.draylar.omega-config:omega-config-base:1.4.0+1.20.1")
     modRuntimeOnly("dev.architectury:architectury-fabric:9.2.14")
     modRuntimeOnly("me.djtheredstoner:DevAuth-fabric:1.2.1")
+    modRuntimeOnly("maven.modrinth:modmenu:7.2.2")
+
+    annotationProcessor("io.wispforest:owo-lib:0.11.2+1.20")
+
+    include("io.wispforest:owo-sentinel:0.11.2+1.20")
 }
 
 tasks.withType<ProcessResources> {

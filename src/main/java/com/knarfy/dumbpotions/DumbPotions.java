@@ -1,5 +1,6 @@
 package com.knarfy.dumbpotions;
 
+import com.knarfy.dumbpotions.config.ModConfig;
 import com.knarfy.dumbpotions.init.*;
 import com.knarfy.dumbpotions.screen.SubscribeHandler;
 import net.fabricmc.api.ModInitializer;
@@ -11,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 public class DumbPotions implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "dumbpotions";
+    public static final ModConfig CONFIG = ModConfig.createAndLoad();
 
     @Override
     public void onInitialize() {

@@ -12,8 +12,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import org.jetbrains.annotations.NotNull;
 
+// TODO: Make a config option that blocks the theme song from playing (client-side) if the config is set to true
 public class ThemeSongEffect extends MobEffect {
-
     public ThemeSongEffect() {
         super(MobEffectCategory.BENEFICIAL, -154);
     }
@@ -25,15 +25,12 @@ public class ThemeSongEffect extends MobEffect {
 
     @Override
     public void addAttributeModifiers(LivingEntity entity, AttributeMap attributeMap, int amplifier) {
-        var world = entity.level();
         var x = entity.getX();
         var y = entity.getY();
         var z = entity.getZ();
 
-        if (!world.isClientSide()) {
-            world.playSound(null, BlockPos.containing(x, y, z), ModSounds.THEME_SONGS, SoundSource.PLAYERS, 0.8F, 1.0F);
-        } else {
-            world.playLocalSound(x, y, z, ModSounds.THEME_SONGS, SoundSource.PLAYERS, 0.8F, 1.0F, false);
+        if (entity.level() instanceof ServerLevel level) {
+            level.playSound(null, BlockPos.containing(x, y, z), ModSounds.THEME_SONGS, SoundSource.PLAYERS, 0.8F, 1.0F);
         }
     }
 

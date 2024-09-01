@@ -43,8 +43,9 @@ public class DumbPotionsDataGen implements DataGeneratorEntrypoint {
                 b.add("item.minecraft.lingering_potion.effect." + person.getUsername().toLowerCase() + "_potion", "Lingering Potion of " + person.getName());
                 b.add("item.minecraft.potion.effect." + person.getUsername().toLowerCase() + "_potion", "Potion of " + person.getName());
                 b.add("effect.dumbpotions." + person.getUsername().toLowerCase() + "_potion_effect", person.getName() + " Effect");
-                b.add("gamerule." + person.getUsername().toLowerCase() + "_tp.description", "Does the " + person.getName() + " Potion Teleport " + person.getName() + " to you?");
-                b.add("gamerule." + person.getUsername().toLowerCase() + "_tp", person.getName() + " Teleport Potion Works");
+//                b.add("gamerule." + person.getUsername().toLowerCase() + "_tp.description", "Does the " + person.getName() + " Potion Teleport " + person.getName() + " to you?");
+//                b.add("gamerule." + person.getUsername().toLowerCase() + "_tp", person.getName() + " Teleport Potion Works");
+                b.add("text.config.dumbpotions.option.teleportConfigs." + person.getUsername().toLowerCase() + "Tp", "Enable teleporting " + person.getName() + " when their potion is drank");
             }
 
             HashMap<String, String> potions = getPotions();
@@ -57,6 +58,10 @@ public class DumbPotionsDataGen implements DataGeneratorEntrypoint {
                 b.add("effect.dumbpotions." + potion + "_effect", potions.get(potion) + " Effect");
             }
 
+            b.add("text.config.dumbpotions.title", "Dumb Potions Mod Config");
+            b.add("text.config.dumbpotions.option.loudBreakingPotion", "Enable loud breaking potion SFX");
+            b.add("text.config.dumbpotions.category.teleportConfigs", "Teleport Potion Configs");
+
             b.add("subtitles.yay", "YAAAAAAYYYYYYY!!");
             b.add("subtitles.themesongs", "Theme Song Plays");
             b.add("subtitles.slidewhistleup", "Entity Launches");
@@ -65,7 +70,7 @@ public class DumbPotionsDataGen implements DataGeneratorEntrypoint {
             b.add("gamerule.shriek_counter", "Shriek Counter");
             b.add("gamerule.shriek_counter.description", "How many potions have been consumed (2+ spawns a warden)_");
 
-            b.add("item.dumbpotions.invisible_spawn_egg", "Invisible Spawn Egg");
+            b.add("item.dumbpotions.invisible_spawn_egg", "§kInvisible§r Spawn Egg");
 
             b.add("death.attack.25%", "You found the 25% Chance of Death");
 

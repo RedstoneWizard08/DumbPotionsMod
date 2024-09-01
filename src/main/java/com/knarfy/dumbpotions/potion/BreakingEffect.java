@@ -1,5 +1,6 @@
 package com.knarfy.dumbpotions.potion;
 
+import com.knarfy.dumbpotions.DumbPotions;
 import com.knarfy.dumbpotions.init.ModSounds;
 import io.wispforest.owo.ui.core.Color;
 import net.minecraft.core.BlockPos;
@@ -37,7 +38,7 @@ public class BreakingEffect extends MobEffect {
                 level.addFreshEntity(tnt);
             }
 
-            level.playSound(null, BlockPos.containing(pos), ModSounds.BREAKING, SoundSource.PLAYERS, 1.0F, 1.0f);
+            level.playSound(null, BlockPos.containing(pos), ModSounds.BREAKING, SoundSource.PLAYERS, DumbPotions.CONFIG.loudBreakingPotion() ? 1.0f : 0.5f, 1.0f);
         }
     }
 }

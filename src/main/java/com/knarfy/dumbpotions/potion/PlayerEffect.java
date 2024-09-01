@@ -1,6 +1,7 @@
 package com.knarfy.dumbpotions.potion;
 
 import carpet.patches.EntityPlayerMPFake;
+import com.knarfy.dumbpotions.config.ModConfigModel;
 import com.knarfy.dumbpotions.init.ModGameRules;
 import com.knarfy.dumbpotions.util.EmptyWorldPeople;
 import net.minecraft.core.BlockPos;
@@ -43,7 +44,7 @@ public class PlayerEffect extends MobEffect {
         double y = entity.getY();
         double z = entity.getZ();
 
-        if (world.getLevelData().getGameRules().getBoolean(ModGameRules.PLAYER_KEYS.get(username.toLowerCase()))) {
+        if (ModConfigModel.TeleportConfigs.getFor(username.toLowerCase())) {
             if (!entity.level().isClientSide() && entity.getServer() != null) {
                 if (Arrays.stream(entity.getServer().getPlayerNames())
                         .map(String::toLowerCase)
