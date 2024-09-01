@@ -193,6 +193,7 @@
   "subtitles.themesongs": "Theme Song Plays",
   "subtitles.yay": "YAAAAAAYYYYYYY!!",
   "text.config.dumbpotions.category.teleportConfigs": "Teleport Potion Configs",
+  "text.config.dumbpotions.option.creatorMode": "Disable music from Epidemic Sound",
   "text.config.dumbpotions.option.loudBreakingPotion": "Enable loud breaking potion SFX",
   "text.config.dumbpotions.option.teleportConfigs.ajianajaTp": "Enable teleporting AjianAja when their potion is drank",
   "text.config.dumbpotions.option.teleportConfigs.ashisrealTp": "Enable teleporting AshIsReal when their potion is drank",

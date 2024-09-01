@@ -60,6 +60,7 @@ public class DumbPotionsDataGen implements DataGeneratorEntrypoint {
 
             b.add("text.config.dumbpotions.title", "Dumb Potions Mod Config");
             b.add("text.config.dumbpotions.option.loudBreakingPotion", "Enable loud breaking potion SFX");
+            b.add("text.config.dumbpotions.option.creatorMode", "Disable music from Epidemic Sound");
             b.add("text.config.dumbpotions.category.teleportConfigs", "Teleport Potion Configs");
 
             b.add("subtitles.yay", "YAAAAAAYYYYYYY!!");
